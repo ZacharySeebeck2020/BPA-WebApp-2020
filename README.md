@@ -1,2 +1,2 @@
-# BPA-WebApp-2020
-The codebase for the Epic Win Sporting Goods LLC shop for BPA 2019-2020.
+# Business Professionals Of America 2019-2020 Web App
+This will be filled in in the future.
