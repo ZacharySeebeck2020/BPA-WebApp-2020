@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Sellable;
 use Illuminate\Http\Request;
 
-class SellableController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class SellableController extends Controller
      */
     public function index()
     {
-        //
+        return view('products');
     }
 
     /**
@@ -41,10 +40,10 @@ class SellableController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Sellable  $sellable
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Sellable $sellable)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class SellableController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Sellable  $sellable
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sellable $sellable)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class SellableController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Sellable  $sellable
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sellable $sellable)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class SellableController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Sellable  $sellable
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sellable $sellable)
+    public function destroy($id)
     {
         //
     }

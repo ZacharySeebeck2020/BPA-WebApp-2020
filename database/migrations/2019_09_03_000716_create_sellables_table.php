@@ -15,6 +15,11 @@ class CreateSellablesTable extends Migration
     {
         Schema::create('sellables', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
+            $table->double('original_price');
+            $table->double('sale_price')->nullable();
+            $table->boolean('on_sale')->default(false);
+            $table->json('features')->default('{}');
             $table->timestamps();
         });
     }
