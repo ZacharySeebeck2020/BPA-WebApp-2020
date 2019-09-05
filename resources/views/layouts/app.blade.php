@@ -14,14 +14,10 @@
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none">
     <div id="app">
-        <nav class="bg-blue-900 shadow mb-8 py-6">
+        {{--    Top Navigation    --}}
+        <nav class="bg-gray-800 shadow py-1">
             <div class="container mx-auto px-6 md:px-0">
-                <div class="flex items-center justify-center">
-                    <div class="mr-6">
-                        <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
-                            {{ config('app.name', 'Laravel') }}
-                        </a>
-                    </div>
+                <div class="flex items-center justify-center py-1">
                     <div class="flex-1 text-right">
                         @guest
                             <a class="no-underline hover:underline text-gray-300 text-sm p-3" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -43,7 +39,24 @@
                 </div>
             </div>
         </nav>
+        {{--    Top Navigation    --}}
 
+        {{--    Main Navigation    --}}
+        <nav class="bg-blue-900 shadow mb-8 py-6">
+            <div class="container mx-auto px-6 md:px-0">
+                <div class="flex items-center justify-center">
+                    <div class="mr-6">
+                        <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
+                            {{ config('app.name', 'Laravel') }}
+                        </a>
+                    </div>
+                    <div class="flex-1 text-right">
+                        <a class="no-underline hover:underline text-gray-300 text-sm p-3" href="/store">Shop</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        {{--    Main Navigation    --}}
         @yield('content')
     </div>
 
