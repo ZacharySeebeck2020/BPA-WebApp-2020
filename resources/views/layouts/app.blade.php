@@ -9,6 +9,15 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -41,7 +50,7 @@
                                 <a class="nav-link" href="#">Footwear</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Disabled</a>
+                                <a class="nav-link disabled" href="#">Pew Pew Objects</a>
                             </li>
                         </ul>
                     </ul>
@@ -86,5 +95,15 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
 </body>
 </html>
