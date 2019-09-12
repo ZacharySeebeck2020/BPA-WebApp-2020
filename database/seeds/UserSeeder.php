@@ -14,6 +14,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Code Dojo Administrator',
             'email' => 'admin@codedojo.me',
+            'is_administrator' => 'true',
             'password' => bcrypt('C0d3D0j0!'),
         ]);
 

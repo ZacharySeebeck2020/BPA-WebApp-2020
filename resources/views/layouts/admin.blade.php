@@ -19,7 +19,6 @@
     <link href="css/style.css" rel="stylesheet">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -27,13 +26,16 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Chart.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2/dist/Chart.min.js"></script>
 </head>
 <body class="fixed-sn black-skin">
 
 <!--Double navigation-->
 <header>
     <!-- Sidebar navigation -->
-    <div id="slide-out" class="side-nav fixed" style="background-image: url(/img/admin/sidebar.jpg);">
+    <div id="slide-out" class="side-nav fixed" style="background-image: url(/img/admin/sidebar.jpg); background-position: left;">
         <ul class="custom-scrollbar">
             <!-- Logo -->
             <li>
@@ -46,21 +48,31 @@
             <!-- Side navigation links -->
             <li>
                 <ul class="collapsible collapsible-accordion">
+                    <li><p class="text-center mt-3">{{ config('app.name') }}</p></li>
+                    <li><a href="/administration" class="waves-effect"><i class="fas fa-home"></i> Home</a></li>
                     <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-shopping-bag"></i> Products<i class="fas fa-angle-down rotate-icon"></i></a>
-                    <div class="collapsible-body">
+                        <div class="collapsible-body">
                             <ul>
+                                <li><a href="#" class="waves-effect">Product Overview</a></li>
                                 <li><a href="#" class="waves-effect">All Products</a></li>
                                 <li><a href="#" class="waves-effect">New Product</a></li>
-                                <li><hr></li>
                             </ul>
                         </div>
                     </li>
                     <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-archive"></i> Orders<i class="fas fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul>
+                                <li><a href="#" class="waves-effect">Order Overview</a></li>
                                 <li> <a href="#" class="waves-effect">New Orders</a> </li>
                                 <li> <a href="#" class="waves-effect">Completed Orders</a> </li>
-                                <li> <a href="#" class="waves-effect">Completed Orders</a> </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-warehouse"></i> Inventory<i class="fas fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">Inventory Overview</a></li>
+                                <li><a href="#" class="waves-effect">Manage Inventory</a></li>
                             </ul>
                         </div>
                     </li>
@@ -73,6 +85,15 @@
                             </ul>
                         </div>
                     </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="far fa-life-ring"></i> Support<i class="fas fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">Open Support Tickets</a></li>
+                                <li><a href="#" class="waves-effect">All Support Tickets</a></li>
+                                <li><a href="#" class="waves-effect">General Messages</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </li>
             <!--/. Side navigation links -->
@@ -81,14 +102,14 @@
     </div>
     <!--/. Sidebar navigation -->
     <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-sm scrolling-navbar double-nav">
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-sm scrolling-navbar double-nav elegant-color" style="background-image: url(/img/admin/sidebar.jpg); background-blend-mode: soft-light;">
         <!-- SideNav slide-out button -->
         <div class="float-left">
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-bars"></i></a>
         </div>
         <!-- Breadcrumb-->
         <div class="breadcrumb-dn mr-auto">
-            <p>{{ config('app.name', 'Laravel') }}</p>
+            <p>{{ config('app.name', 'Laravel') }} - @yield('title', 'UNDEFINED')</p>
         </div>
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
             @guest
@@ -126,11 +147,11 @@
     <div id="app">
         @yield('content')
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
 </main>
 <!--Main Layout-->
 
-</body>
-
+@yield('scripts');
 
 <!-- SCRIPTS -->
 <!-- JQuery -->
@@ -142,6 +163,7 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
 
+
 {{-- MDB Sidebar Init --}}
 <script>
     // SideNav Button Initialization
@@ -149,5 +171,9 @@
     // SideNav Scrollbar Initialization
     var sideNavScrollbar = document.querySelector('.custom-scrollbar');
 </script>
+
+
+
+</body>
 
 </html>
