@@ -24,6 +24,22 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Administration Routes.
-Route::group(['middleware' => ['admin', 'auth']], function () {
-    Route::get('/administration', 'AdminController@index');
+Route::prefix('administration')->group(function () {
+    // Home Route
+    Route::get('/', 'AdminController@index');
+
+    // Product Routes
+    Route::prefix('products')->group(function () {
+        // Overview Route
+        Route::get('/', 'ProductController@index');
+        // All Products Route
+        Route::get('/all', 'ProductController@all');
+        // Create
+        Route::get('/create', 'ProductController@create');
+        Route::post('/create', 'ProductController@store');
+        // Modify
+        Route::get('/modify/{id}', 'ProductController@edit');
+        Route::post('/modify/{id}', 'ProductController@update');
+
+    });
 });
