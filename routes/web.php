@@ -28,18 +28,32 @@ Route::prefix('administration')->name('admin.')->group(function () {
     // Home Route
     Route::get('/', 'AdminController@index')->name('index');
 
-    // Product Routes
-    Route::prefix('products')->name('products.')->group(function () {
-        // Overview Route
-        Route::get('/', 'OverviewController@products')->name('overview');
-        // All Products Route
-        Route::get('/all', 'ProductController@index')->name('index');
-        // Create
-        Route::get('/create', 'ProductController@create')->name('create');
-        Route::post('/create', 'ProductController@store')->name('store');
-        // Modify
-        Route::get('/modify/{id}', 'ProductController@edit')->name('edit');
-        Route::post('/modify/{id}', 'ProductController@update')->name('update');
+    // Catalog Routes
+    Route::prefix('catalog')->name('catalog.')->group(function () {
+        // Product Routes
+        Route::prefix('products')->name('products.')->group(function () {
+            // Overview Route
+            Route::get('/', 'ProductController@index')->name('index');
+            // Create
+            Route::get('/create', 'ProductController@create')->name('create');
+            Route::post('/create', 'ProductController@store')->name('store');
+            // Modify
+            Route::get('/modify/{id}', 'ProductController@edit')->name('edit');
+            Route::post('/modify/{id}', 'ProductController@update')->name('update');
 
+        });
+
+        // Product Routes
+        Route::prefix('categories')->name('categories.')->group(function () {
+            // Overview Route
+            Route::get('/', 'OverviewController@products')->name('index');
+            // Create
+            Route::get('/create', 'ProductController@create')->name('create');
+            Route::post('/create', 'ProductController@store')->name('store');
+            // Modify
+            Route::get('/modify/{id}', 'ProductController@edit')->name('edit');
+            Route::post('/modify/{id}', 'ProductController@update')->name('update');
+
+        });
     });
 });

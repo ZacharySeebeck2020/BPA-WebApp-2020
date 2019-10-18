@@ -52,12 +52,11 @@
                 <ul class="collapsible collapsible-accordion">
                     <li><p class="text-center mt-3">{{ config('app.name') }}</p></li>
                     <li><a href="{{ route('admin.index') }}" class="waves-effect"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-shopping-bag"></i> Products<i class="fas fa-angle-down rotate-icon"></i></a>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-shopping-bag"></i> Catalog<i class="fas fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="{{ route('admin.products.overview') }}" class="waves-effect">Product Overview</a></li>
-                                <li><a href="{{ route('admin.products.index') }}" class="waves-effect">All Products</a></li>
-                                <li><a href="{{ route('admin.products.create') }}" class="waves-effect">New Product</a></li>
+                                <li><a href="{{ route('admin.catalog.products.index') }}" class="waves-effect">Products</a></li>
+                                <li><a href="{{ route('admin.catalog.categories.index') }}" class="waves-effect">Categories</a></li>
                             </ul>
                         </div>
                     </li>
