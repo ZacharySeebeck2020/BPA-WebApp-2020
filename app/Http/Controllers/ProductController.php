@@ -14,7 +14,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view ('admin.products.index');
+        $products = Product::all();
+
+        return view ('admin.products.index')->with('products', $products);
     }
 
     /**
@@ -35,18 +37,23 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validated = $request->validate([
+            'name' => 'required|min:5|max:100',
+            'basePrice' => 'required|min:1',
+            'features' => 'nullable'
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        //
+        $features = [];
+        // TODO: Validate and split feature list.
+
+        Product::create([
+            'base_name' => $validated['name'],
+            'base_price' => $validated['basePrice'],
+            'features' => json_encode($features),
+        ]);
+
+        return redirect(route('admin.products.all'))->with('success', ['Created new product: ' . $validated['name']]);
+
     }
 
     /**
@@ -57,7 +64,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.products.edit')->with('product', $product);
     }
 
     /**
@@ -69,7 +76,23 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|min:5|max:100',
+            'basePrice' => 'required|min:1',
+            'features' => 'nullable'
+        ]);
+
+        $features = [];
+        // TODO: Validate and split feature list.
+
+
+        $product->update([
+            'base_name' => $validated['name'],
+            'base_price' => $validated['basePrice'],
+            'features' => json_encode($features),
+        ]);
+
+        return redirect(route('admin.products.all'))->with('success', ['Updated product: ' . $validated['name']]);
     }
 
     /**

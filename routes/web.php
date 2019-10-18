@@ -24,22 +24,22 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Administration Routes.
-Route::prefix('administration')->group(function () {
+Route::prefix('administration')->name('admin.')->group(function () {
     // Home Route
-    Route::get('/', 'AdminController@index');
+    Route::get('/', 'AdminController@index')->name('index');
 
     // Product Routes
-    Route::prefix('products')->group(function () {
+    Route::prefix('products')->name('products.')->group(function () {
         // Overview Route
-        Route::get('/', 'ProductController@index');
+        Route::get('/', 'OverviewController@products')->name('overview');
         // All Products Route
-        Route::get('/all', 'ProductController@all');
+        Route::get('/all', 'ProductController@index')->name('index');
         // Create
-        Route::get('/create', 'ProductController@create');
-        Route::post('/create', 'ProductController@store');
+        Route::get('/create', 'ProductController@create')->name('create');
+        Route::post('/create', 'ProductController@store')->name('store');
         // Modify
-        Route::get('/modify/{id}', 'ProductController@edit');
-        Route::post('/modify/{id}', 'ProductController@update');
+        Route::get('/modify/{id}', 'ProductController@edit')->name('edit');
+        Route::post('/modify/{id}', 'ProductController@update')->name('update');
 
     });
 });
