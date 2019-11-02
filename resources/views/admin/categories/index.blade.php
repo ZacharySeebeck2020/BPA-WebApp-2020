@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'All Products')
+@section('title', 'All Categories')
 
 @section('head')
     <!-- MDBootstrap Datatables  -->
@@ -20,13 +20,13 @@
 
 @section('content')
 
-    @include('admin.modals.new_product')
+    @include('admin.modals.new_category')
 
     <div class="row pt-2 pb-4">
-        <h2 class="py-auto mr-auto">All Products</h2>
+        <h2 class="py-auto mr-auto">All Categories</h2>
 
-        <button type="button" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#newProductModal">
-            New Product
+        <button type="button" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#newCategoryModal">
+            Add Category
         </button>
     </div>
 
@@ -34,39 +34,27 @@
         <table id="productsTable" class="table table-bordered">
             <thead>
             <tr>
-                <th class="th-sm">ID
-                </th>
-                <th class="th-lg">Category
-                </th>
                 <th class="th-lg">Name
                 </th>
-                <th class="th-lg">Price
+                <th class="th-sm" style="width: 10%">Visible
                 </th>
             </tr>
             </thead>
-
             <tbody>
-                @foreach($products as $product)
+                @foreach($categories as $category)
                     <tr>
-                        <td>{{ $product->id }}</td>
-                        <td>{{ $product->category->name }}</td>
-                        <td>{{ $product->base_name }}</td>
-                        <td>{{ $product->base_price }}</td>
+                        <td>{{ $category->name }}</td>
+                        <td>{{ $category->visible_in_menu }}</td>
                     </tr>
                 @endforeach
-
             </tbody>
-
             <tfoot>
             <tr>
-                <th>ID
-                </th>
-                <th>Category
-                </th>
                 <th>Name
                 </th>
-                <th>Price
+                <th>Visible
                 </th>
+
             </tr>
             </tfoot>
         </table>

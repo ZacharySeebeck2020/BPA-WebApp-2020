@@ -46,13 +46,13 @@ Route::prefix('administration')->name('admin.')->group(function () {
         // Product Routes
         Route::prefix('categories')->name('categories.')->group(function () {
             // Overview Route
-            Route::get('/', 'OverviewController@products')->name('index');
+            Route::get('/', 'CategoryController@index')->name('index');
             // Create
-            Route::get('/create', 'ProductController@create')->name('create');
-            Route::post('/create', 'ProductController@store')->name('store');
+            Route::get('/create', 'CategoryController@create')->name('create');
+            Route::post('/create', 'CategoryController@store')->name('store');
             // Modify
-            Route::get('/modify/{id}', 'ProductController@edit')->name('edit');
-            Route::post('/modify/{id}', 'ProductController@update')->name('update');
+            Route::get('/modify/{id}', 'CategoryController@edit')->name('edit');
+            Route::post('/modify/{id}', 'CategoryController@update')->name('update');
 
         });
     });
