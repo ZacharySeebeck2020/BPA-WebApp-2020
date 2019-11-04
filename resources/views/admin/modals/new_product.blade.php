@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg" role="document">
 
         <div class="modal-content">
-            <form>
+            <form action="{{ route('admin.catalog.products.create') }}">
                 <div class="modal-header">
                     <h4 class="modal-title w-100" id="myModalLabel">Before You Begin...</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -21,7 +21,7 @@
 
                     <div class="row pt-3">
                         <label for="category">Category</label>
-                        <select class="browser-default custom-select" id="category" name="category">
+                        <select class="browser-default custom-select" id="category" name="category" required>
                             <option selected disabled>Select a category.</option>
                             @foreach($categories as $category)
                                 <option>{{$category->name}}</option>
@@ -31,13 +31,13 @@
 
                     <div class="row pt-3">
                         <label for="sku">SKU</label>
-                        <input type="text" id="sku" name="sku" class="form-control">
+                        <input type="text" id="sku" name="sku" class="form-control" required>
                     </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Continue</button>
                 </div>
             </form>
         </div>
