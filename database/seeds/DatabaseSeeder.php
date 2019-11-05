@@ -17,22 +17,22 @@ class DatabaseSeeder extends Seeder
 
         DB::table('categories')->insert([
             'name' => 'Fishing',
-            'visible_in_menu' => 'true',
+            'visible_in_menu' => true,
         ]);
 
         DB::table('categories')->insert([
             'name' => 'Hunting',
-            'visible_in_menu' => 'true',
+            'visible_in_menu' => true,
         ]);
 
         DB::table('categories')->insert([
             'name' => 'Clothing',
-            'visible_in_menu' => 'true',
+            'visible_in_menu' => true,
         ]);
 
         DB::table('categories')->insert([
             'name' => 'Pet Needs',
-            'visible_in_menu' => 'false',
+            'visible_in_menu' => true,
         ]);
     }
 }

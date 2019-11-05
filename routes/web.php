@@ -36,7 +36,7 @@ Route::prefix('administration')->name('admin.')->group(function () {
             Route::get('/', 'ProductController@index')->name('index');
             // Create
             Route::get('/create', 'ProductController@create')->name('create');
-            Route::post('/create', 'ProductController@store')->name('store');
+            Route::put  ('/create', 'ProductController@store')->name('store');
             // Modify
             Route::get('/modify/{id}', 'ProductController@edit')->name('edit');
             Route::post('/modify/{id}', 'ProductController@update')->name('update');
