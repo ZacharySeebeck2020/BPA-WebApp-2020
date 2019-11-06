@@ -31,7 +31,7 @@
 
                     <div class="row pt-3">
                         <label for="sku">SKU</label>
-                        <input type="text" id="sku" name="sku" class="form-control" required>
+                        <input type="text" id="sku"  name="sku" class="form-control" required>
                     </div>
 
                 </div>

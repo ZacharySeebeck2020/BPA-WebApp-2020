@@ -49,7 +49,7 @@ Route::prefix('administration')->name('admin.')->group(function () {
             Route::get('/', 'CategoryController@index')->name('index');
             // Create
             Route::get('/create', 'CategoryController@create')->name('create');
-            Route::post('/create', 'CategoryController@store')->name('store');
+            Route::put('/create', 'CategoryController@store')->name('store');
             // Modify
             Route::get('/modify/{id}', 'CategoryController@edit')->name('edit');
             Route::post('/modify/{id}', 'CategoryController@update')->name('update');

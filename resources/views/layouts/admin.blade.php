@@ -146,6 +146,17 @@
 <!--Main Layout-->
 <main>
     <div id="app">
+        @if ($errors->any())
+            <div class="container-fluid pt-3">
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li> {{$error}} </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
         @yield('content')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>

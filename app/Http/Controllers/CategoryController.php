@@ -27,7 +27,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+           'name' => 'required|max: 15',
+           'visible' => 'required',
+        ]);
+
+        Category::create([
+           'name' => $validated['name'],
+           'visible_in_menu' => $validated['visible']
+        ]);
+
+        return back();
     }
 
     /**

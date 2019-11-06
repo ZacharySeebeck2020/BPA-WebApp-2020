@@ -4,7 +4,9 @@
     <div class="modal-dialog modal-lg" role="document">
 
         <div class="modal-content">
-            <form>
+            <form action="{{ route('admin.catalog.categories.create') }}" method="post">
+                @csrf
+                @method('PUT')
                 <div class="modal-header">
                     <h4 class="modal-title w-100" id="myModalLabel">Before You Begin...</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -15,7 +17,7 @@
 
                     <div class="row pt-3">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" class="form-control">
+                        <input type="text" id="name" name="name" value="{{ old('name') }}" class="form-control">
                     </div>
 
                     <div class="row pt-3">
@@ -29,7 +31,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Save changes</button>
                 </div>
             </form>
         </div>
