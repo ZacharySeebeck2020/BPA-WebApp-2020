@@ -41,7 +41,7 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|min:5|max:100',
-            'basePrice' => 'required|min:1',
+            'price' => 'required|min:1',
             'features' => 'nullable'
         ]);
 
@@ -50,7 +50,7 @@ class ProductController extends Controller
 
         Product::create([
             'base_name' => $validated['name'],
-            'base_price' => $validated['basePrice'],
+            'base_price' => $validated['price'],
             'features' => json_encode($features),
         ]);
 

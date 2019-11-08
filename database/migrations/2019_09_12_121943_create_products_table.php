@@ -18,8 +18,8 @@ class CreateProductsTable extends Migration
             $table->integer('category_id');
             $table->string('base_name');
             $table->double('base_price');
-            $table->longText('description');
-            $table->json('features');
+            $table->longText('description')->nullable();
+            $table->json('features')->nullable();
             $table->timestamps();
         });
     }

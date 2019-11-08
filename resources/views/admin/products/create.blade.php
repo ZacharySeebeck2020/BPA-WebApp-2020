@@ -55,7 +55,7 @@
 
              <div class="row mx-auto pt-1" style="width: 90%">
                  <div class="col">
-                     <label for="slug" class="py-auto">URL Slug <small class="required">*</small>   Ex. (/product/product_name)</label>
+                     <label for="slug" class="py-auto">URL Slug <small class="required">*</small>   Ex. (/product/____)</label>
                      <input type="text" id="slug" name="slug" required class="form-control" style="max-width: 91%">
                  </div>
              </div>
