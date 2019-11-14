@@ -15,8 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::get();
         $categories = Category::all();
+
 
         return view ('admin.products.index')->with('products', $products)->with('categories', $categories);
     }
@@ -26,9 +27,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('admin.products.create');
+        $categories = Category::all();
+
+        return view('admin.products.create')->with('categories', $categories);
     }
 
     /**
@@ -40,21 +43,28 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'sku' => 'required|min:5|max:100',
             'name' => 'required|min:5|max:100',
-            'price' => 'required|min:1',
-            'features' => 'nullable'
+            'category' => 'required',
+            'slug' => 'required|min:5|max:100',
+            'price' => 'required|min:1|numeric',
         ]);
 
-        $features = [];
-        // TODO: Validate and split feature list.
+        $category = Category::where('name', $validated['category'])->first();
+
+        if (is_null($category)) {
+            return back()->withErrors(['category' => 'Unable to retrieve category. Please try again later.'])->withInput();
+        }
 
         Product::create([
-            'base_name' => $validated['name'],
-            'base_price' => $validated['price'],
-            'features' => json_encode($features),
+            'category_id' => $category->id,
+            'sku' => $validated['sku'],
+            'name' => $validated['name'],
+            'slug' => $validated['slug'],
+            'price' => $validated['price'],
         ]);
 
-        return redirect(route('admin.products.all'))->with('success', ['Created new product: ' . $validated['name']]);
+        return redirect(route('admin.catalog.products.index'))->with('successes', ['Created new product: ' . $validated['name']]);
 
     }
 
@@ -94,7 +104,7 @@ class ProductController extends Controller
             'features' => json_encode($features),
         ]);
 
-        return redirect(route('admin.products.all'))->with('success', ['Updated product: ' . $validated['name']]);
+        return redirect(route('admin.products.all'))->with('successes', ['Updated product: ' . $validated['name']]);
     }
 
     /**
@@ -103,8 +113,14 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Request $request)
     {
-        //
+        $request->validate([
+            'id' => 'required'
+        ]);
+
+        Product::find($request->id)->delete();
+
+        return redirect(route('admin.catalog.products.index'))->with('successes', ['Deleted the product successfully.']);
     }
 }

@@ -13,7 +13,9 @@ class Product extends Model
      */
     public function category()
     {
-        return $this->hasOne('App\Category');
+        $category = Category::where('id', $this->category_id)->first();
+
+        return $category;
     }
 
 }

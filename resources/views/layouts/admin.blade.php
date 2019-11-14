@@ -157,6 +157,18 @@
                 </div>
             </div>
         @endif
+
+        @if (isset($successes))
+            <div class="container-fluid pt-3">
+                <div class="alert alert-success">
+                    <ul>
+                        @foreach ($successes as $success)
+                            <li> {{$success}} </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
         @yield('content')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>

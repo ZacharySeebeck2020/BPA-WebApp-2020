@@ -8,7 +8,7 @@
 
     <style>
 
-        {{-- I have this here because there is some problem where the deault table is like half size. This fies that.  --}}
+        {{-- I have this here because there is some problem where the default table is like half size. This fixes that.  --}}
         #productsTable_wrapper {
             width: 100%;
         }
@@ -34,14 +34,12 @@
         <table id="productsTable" class="table table-bordered">
             <thead>
             <tr>
-                <th class="th-sm">ID
-                </th>
-                <th class="th-lg">Category
-                </th>
-                <th class="th-lg">Name
-                </th>
-                <th class="th-lg">Price
-                </th>
+                <th class="th-sm">ID</th>
+                <th class="th-lg">Category</th>
+                <th class="th-lg">Name</th>
+                <th class="th-lg">Price</th>
+                <th class="th-lg">Slug</th>
+                <th class="th-sm"></th>
             </tr>
             </thead>
 
@@ -49,9 +47,25 @@
                 @foreach($products as $product)
                     <tr>
                         <td>{{ $product->id }}</td>
-                        <td>{{ $product->category->name }}</td>
-                        <td>{{ $product->base_name }}</td>
-                        <td>{{ $product->base_price }}</td>
+                        <td>{{ $product->category()->name }}</td>
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->price }}</td>
+                        <td>/products/{{ $product->slug }}</td>
+                        <td class="justify-content-center">
+                            <div class="row justify-content-center">
+                                <form action="{{ route('admin.catalog.products.destroy') }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="text" hidden name="id" value="{{ $product->id }}">
+                                    <button type="submit" class="btn btn-danger px-3"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                                </form>
+
+                                <form action="{{ route('admin.catalog.products.edit') }}" method="GET">
+                                    <input type="text" hidden name="id" value="{{ $product->id }}">
+                                    <button type="submit" class="btn btn-primary px-3"><i class="fas fa-edit" aria-hidden="true"></i></button>
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
 
@@ -59,14 +73,12 @@
 
             <tfoot>
             <tr>
-                <th>ID
-                </th>
-                <th>Category
-                </th>
-                <th>Name
-                </th>
-                <th>Price
-                </th>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Slug</th>
+                <th></th>
             </tr>
             </tfoot>
         </table>
