@@ -17,4 +17,44 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+// Public Routes
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+// Administration Routes.
+Route::prefix('administration')->name('admin.')->group(function () {
+    // Home Route
+    Route::get('/', 'AdminController@index')->name('index');
+
+    // Catalog Routes
+    Route::prefix('catalog')->name('catalog.')->group(function () {
+        // Product Routes
+        Route::prefix('products')->name('products.')->group(function () {
+            // Overview Route
+            Route::get('/', 'ProductController@index')->name('index');
+            // Create
+            Route::get('/create', 'ProductController@create')->name('create');
+            Route::put('/create', 'ProductController@store')->name('store');
+            // Modify
+            Route::get('/modify', 'ProductController@edit')->name('edit');
+            Route::post('/modify', 'ProductController@update')->name('update');
+            // Destroy
+            Route::delete('/destroy', 'ProductController@destroy')->name('destroy');
+        });
+
+        // Product Routes
+        Route::prefix('categories')->name('categories.')->group(function () {
+            // Overview Route
+            Route::get('/', 'CategoryController@index')->name('index');
+            // Create
+            Route::get('/create', 'CategoryController@create')->name('create');
+            Route::put('/create', 'CategoryController@store')->name('store');
+            // Modify
+            Route::get('/modify/{id}', 'CategoryController@edit')->name('edit');
+            Route::post('/modify/{id}', 'CategoryController@update')->name('update');
+
+        });
+    });
+});
