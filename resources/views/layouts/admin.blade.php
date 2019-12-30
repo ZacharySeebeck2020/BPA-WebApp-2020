@@ -41,8 +41,8 @@
         <ul class="custom-scrollbar">
             <!-- Logo -->
             <li>
-                <div class="logo-wrapper waves-light" style="height: 130px;">
-                    <a href="/administration"><img src="/img/admin/logo.png" class="img-fluid flex-center"></a>
+                <div class="logo-wrapper waves-light" style="height: 175px;">
+                    <a href="/administration"><img src="/logo.png" class="img-fluid flex-center"></a>
                 </div>
             </li>
             <!--/. Logo -->

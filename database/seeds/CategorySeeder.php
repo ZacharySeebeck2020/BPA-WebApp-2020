@@ -12,23 +12,17 @@ class CategorySeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-            'name' => 'Fishing',
-            'visible_in_menu' => 'true',
+            'id' => '0',
+            'name' => 'Outdoors',
+            'parent_id' => null,
+            'slug' => 'outdoor'
         ]);
 
         DB::table('categories')->insert([
+            'id' => '1',
             'name' => 'Hunting',
-            'visible_in_menu' => 'true',
-        ]);
-
-        DB::table('categories')->insert([
-            'name' => 'Clothing',
-            'visible_in_menu' => 'true',
-        ]);
-
-        DB::table('categories')->insert([
-            'name' => 'Pet Needs',
-            'visible_in_menu' => 'false',
+            'parent_id' => 0,
+            'slug' => 'outdoor'
         ]);
     }
 }

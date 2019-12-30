@@ -15,4 +15,11 @@ class Category extends Model
     {
         return $this->hasMany('App\Product');
     }
+
+    /**
+     * If the category has a parent return the parent. If not, return false.
+     */
+    public function hasParent() {
+        return $this;
+    }
 }
