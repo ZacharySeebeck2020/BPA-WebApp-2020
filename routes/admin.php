@@ -15,4 +15,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', 'BasicsController@index');
+Route::get('/', 'BasicsController@index')->name('admin.dashboard');

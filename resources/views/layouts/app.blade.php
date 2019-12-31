@@ -38,10 +38,7 @@
 
     <!--Nav-->
     <nav id="header" class="w-full z-30 top-0 text-white back-image mb-10">
-
         @include('layouts.navs.main')
-
-
         <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
     </nav>
 
