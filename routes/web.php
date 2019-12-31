@@ -10,9 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'BasicsController@landing');
+// All the default authentication routes wrapped into one nice little package.
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Public no authentication routes.
+Route::get('/', 'BasicsController@landing')->name('landing');
 
+// Add routes to the auth middleware group so they're only accessable by signed in users.
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', 'UserController@home')->name('user.dashboard');
+    Route::get('/dashboard/orders', 'UserController@orders')->name('user.orders');
+});
+
+// Administrator Routes
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', 'UserController@home')->name('user.dashboard');
+    Route::get('/dashboard/orders', 'UserController@orders')->name('user.orders');
+});
