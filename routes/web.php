@@ -13,17 +13,16 @@
 // All the default authentication routes wrapped into one nice little package.
 Auth::routes();
 
-// Public no authentication routes.
+// Public no authentication routes. ---------------------------------------------------
 Route::get('/', 'BasicsController@landing')->name('landing');
 
-// Add routes to the auth middleware group so they're only accessable by signed in users.
+// Public auth routes ---------------------------------------------------
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'UserController@home')->name('user.dashboard');
     Route::get('/dashboard/orders', 'UserController@orders')->name('user.orders');
 });
 
-// Administrator Routes
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard', 'UserController@home')->name('user.dashboard');
-    Route::get('/dashboard/orders', 'UserController@orders')->name('user.orders');
+// Administrator Routes ---------------------------------------------------
+Route::group(['middleware' => ['administrator']], function () {
+    Route::get('/admin', 'Admin\BasicsController@index')->name('admin.dashboard');
 });

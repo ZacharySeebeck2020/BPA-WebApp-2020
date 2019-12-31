@@ -16,4 +16,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', 'BasicsController@index')->name('dashboard');
+// Administrator Routes
+Route::group(['middleware' => ['administrator']], function () {
+    Route::get('/', 'Admin\BasicsController@index')->name('dashboard');
+});
+
