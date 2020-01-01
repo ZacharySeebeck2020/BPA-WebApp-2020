@@ -13,16 +13,36 @@
 // All the default authentication routes wrapped into one nice little package.
 Auth::routes();
 
-// Public no authentication routes. ---------------------------------------------------
+// Public no authentication routes. ---------------------------------------
 Route::get('/', 'BasicsController@landing')->name('landing');
 
-// Public auth routes ---------------------------------------------------
+// Public auth routes -----------------------------------------------------
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'UserController@home')->name('user.dashboard');
     Route::get('/dashboard/orders', 'UserController@orders')->name('user.orders');
 });
 
-// Administrator Routes ---------------------------------------------------
-Route::group(['middleware' => ['administrator']], function () {
-    Route::get('/admin', 'Admin\BasicsController@index')->name('admin.dashboard');
+// Administration Routes --------------------------------------------------
+Route::name('admin.')->prefix('admin')->middleware('administrator')->namespace('Admin')->group(function () {
+    Route::get('/', 'BasicsController@index')->name('dashboard');
+
+    // Order Routes -------------------------------------------------------
+    Route::name('orders.')->prefix('orders')->group(function () {
+        Route::get('/', 'OrdersController@index')->name('index');
+    });
+
+    // Product Routes -----------------------------------------------------
+    Route::name('products.')->prefix('products')->group(function () {
+        Route::get('/', 'ProductsController@index')->name('index');
+    });
+
+    // Category Routes ----------------------------------------------------
+    Route::name('categories.')->prefix('categories')->group(function () {
+        Route::get('/', 'CategoriesController@index')->name('index');
+    });
+
+    // Coupon Routes ------------------------------------------------------
+    Route::name('coupons.')->prefix('coupons')->group(function () {
+        Route::get('/', 'CouponsController@index')->name('index');
+    });
 });

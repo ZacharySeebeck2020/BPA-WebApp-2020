@@ -16,6 +16,7 @@
 
 
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/38ef9afc8a.js" crossorigin="anonymous"></script>
 
     @yield('style')
 
@@ -64,41 +65,45 @@
                 </a>
 
                 <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
-
                 <ul class="list-reset flex flex-col text-left mr-0 ">
                     <li class="">
                         <a href="{{ route('admin.dashboard') }}"
-                            class="block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 {{ Route::currentRouteName() == 'admin.dashboard' ? "border-pink-500 text-white" : "border-gray-800 md:border-gray-900 hover:border-pink-500 text-gray-800" }}">
+                            class="block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 {{ strpos(Route::currentRouteName(), 'admin.dashboard') !== false ? "border-pink-500 text-white" : "border-gray-800 md:border-gray-900 hover:border-pink-500 text-gray-800" }}">
+                            <i class="fas fa-columns text-pink-500"></i>
                             <span
-                                class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block {{ Route::currentRouteName() == 'admin.dashboard' ? "text-white md:font-bold" : "text-gray-600  md:text-gray-400" }}">Dashboard</span>
+                                class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block {{ strpos(Route::currentRouteName(), 'admin.dashboard') !== false ? "text-white md:font-bold" : "text-gray-600  md:text-gray-400" }}"> Dashboard</span>
                         </a>
                     </li>
                     <li class="">
-                        <a href="#" dashboard
-                            class="block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 {{ Route::currentRouteName() == 'admin.orders' ? "border-blue-500 text-white" : "border-gray-800 md:border-gray-900 hover:border-blue-500 text-gray-800" }}">
+                        <a href="{{ route('admin.orders.index') }}" dashboard
+                            class="block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 {{ strpos(Route::currentRouteName(), 'admin.orders') !== false ? "border-blue-500 text-white" : "border-gray-800 md:border-gray-900 hover:border-blue-500 text-gray-800" }}">
+                            <i class="fas fa-archive text-blue-500"></i>
                             <span
-                                class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block {{ Route::currentRouteName() == 'admin.orders' ? "text-white md:font-bold" : "text-gray-600  md:text-gray-400" }}">Orders</span>
+                                class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block {{ strpos(Route::currentRouteName(), 'admin.orders') !== false ? "text-white md:font-bold" : "text-gray-600  md:text-gray-400" }}"> Orders</span>
                         </a>
                     </li>
                     <li class="md:block hidden">
-                        <a href="#"
-                            class="block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 {{ Route::currentRouteName() == 'admin.products' ? "border-green-500 text-white" : "border-gray-800 md:border-gray-900 hover:border-green-500 text-gray-800" }}">
+                        <a href="{{ route('admin.products.index') }}"
+                            class="block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 {{ strpos(Route::currentRouteName(), 'admin.products') !== false ? "border-green-500 text-white" : "border-gray-800 md:border-gray-900 hover:border-green-500 text-gray-800" }}">
+                            <i class="fas fa-shopping-bag text-green-500"></i>
                             <span
-                                class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block {{ Route::currentRouteName() == 'admin.products' ? "text-white md:font-bold" : "text-gray-600  md:text-gray-400" }}">Products</span>
+                                class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block {{ strpos(Route::currentRouteName(), 'admin.products') !== false ? "text-white md:font-bold" : "text-gray-600  md:text-gray-400" }}"> Products</span>
                         </a>
                     </li>
                     <li class="">
-                        <a href="#" dashboard
-                            class="block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 {{ Route::currentRouteName() == 'admin.categories' ? "border-orange-500 text-white" : "border-gray-800 md:border-gray-900 hover:border-orange-500 text-gray-800" }}">
+                        <a href="{{ route('admin.categories.index') }}" dashboard
+                            class="block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 {{ strpos(Route::currentRouteName(), 'admin.categories') !== false ? "border-orange-500 text-white" : "border-gray-800 md:border-gray-900 hover:border-orange-500 text-gray-800" }}">
+                            <i class="fas fa-tags text-orange-500"></i>
                             <span
-                                class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block {{ Route::currentRouteName() == 'admin.categories' ? "text-white md:font-bold" : "text-gray-600  md:text-gray-400" }}">Categories</span>
+                                class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block {{ strpos(Route::currentRouteName(), 'admin.categories') !== false ? "text-white md:font-bold" : "text-gray-600  md:text-gray-400" }}"> Categories</span>
                         </a>
                     </li>
                     <li class="">
-                        <a href="#"
-                            class="block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 {{ Route::currentRouteName() == 'admin.coupons' ? "border-red-500 text-white" : "border-gray-800 md:border-gray-900 hover:border-red-500 text-gray-800" }}">
+                        <a href="{{ route('admin.coupons.index') }}"
+                            class="block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 {{ strpos(Route::currentRouteName(), 'admin.coupons') !== false ? "border-red-500 text-white" : "border-gray-800 md:border-gray-900 hover:border-red-500 text-gray-800" }}">
+                            <i class="fas fa-money-bill-wave text-red-500"></i>
                             <span
-                                class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block {{ Route::currentRouteName() == 'admin.coupons' ? "text-white md:font-bold" : "text-gray-600  md:text-gray-400" }}">Coupons</span>
+                                class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block {{ strpos(Route::currentRouteName(), 'admin.coupons') !== false ? "text-white md:font-bold" : "text-gray-600  md:text-gray-400" }}"> Coupons</span>
                         </a>
                     </li>
 
@@ -106,8 +111,9 @@
                     <div class="dropdown inline-block relative mr-3 flex-1">
                         <a href="#"
                             class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-yellow-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-yellow-500">
+                            <i class="fas fa-user text-yellow-500"></i>
                             <span
-                                class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Your
+                                class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block"> Your
                                 Account</span>
                             <svg class="inline fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 20 20">
@@ -117,7 +123,7 @@
 
                         <ul class="dropdown-menu absolute hidden text-gray-400 pt-1">
                             <li class=""><a class="bg-gray-900 hover:text-gray-300 border-b-2 border-gray-800 md:border-gray-900 hover:border-yellow-500 py-2 px-4 block whitespace-no-wrap"
-                                    href="/dashboard">Account Information</a></li>
+                                    href="{{ route('user.dashboard') }}">Account Information</a></li>
 
                             <li class="">
                                 <a href="{{ route('logout') }}"
