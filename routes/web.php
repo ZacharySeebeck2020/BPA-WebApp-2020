@@ -39,6 +39,9 @@ Route::name('admin.')->prefix('admin')->middleware('administrator')->namespace('
     // Category Routes ----------------------------------------------------
     Route::name('categories.')->prefix('categories')->group(function () {
         Route::get('/', 'CategoriesController@index')->name('index');
+        Route::get('/new', 'CategoriesController@create')->name('create');
+        Route::put('/new', 'CategoriesController@store')->name('create');
+
     });
 
     // Coupon Routes ------------------------------------------------------

@@ -19298,8 +19298,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Sites\BPA-WebApp-2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Sites\BPA-WebApp-2020\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! /Users/SeebeckZachary/Documents/Projects/BPA-WebApp-2020/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/SeebeckZachary/Documents/Projects/BPA-WebApp-2020/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })

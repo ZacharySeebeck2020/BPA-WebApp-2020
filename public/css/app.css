@@ -1,3 +1,58 @@
+/* Input Classes */
+
+.input_field {
+  width: 100%;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  color: #4a5568;
+  background-color: #f7fafc;
+  border-radius: 0.25rem;
+}
+
+.input_field:focus {
+  outline: 0;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+.input_label {
+  display: block;
+  font-size: 1.125rem;
+  color: #4a5568;
+  margin-bottom: 0.25rem;
+}
+
+/* Content Classes */
+
+.content_card {
+  padding: 2rem;
+  margin-top: 1.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background-color: #fff;
+}
+
+@media (min-width: 1024px) {
+  .content_card {
+    margin-top: 0;
+  }
+}
+
+/* Button Classes */
+
+.button {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  color: #fff;
+  font-weight: 700;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.25rem;
+}
 /**
  * This injects Tailwind's base styles, which is a combination of
  * Normalize.css and some additional base styles.

@@ -1,0 +1,47 @@
+/* Input Classes */
+.input_field {
+    @apply w-full;
+    @apply px-5;
+    @apply py-1;
+    @apply text-gray-700;
+    @apply bg-gray-100;
+    @apply rounded;
+}
+
+.input_field:focus {
+    @apply outline-none;
+    @apply bg-white;
+    @apply shadow-outline;
+}
+
+.input_label {
+    @apply block;
+    @apply text-lg;
+    @apply text-gray-700;
+    @apply mb-1;
+}
+
+/* Content Classes */
+.content_card {
+    @apply p-8;
+    @apply mt-6;
+    @apply rounded;
+    @apply shadow;
+    @apply bg-white;
+}
+
+@screen lg {
+    .content_card {
+        @apply mt-0;
+    }
+}
+
+/* Button Classes */
+.button {
+    @apply mx-1;
+    @apply text-white;
+    @apply font-bold;
+    @apply py-2;
+    @apply px-4;
+    @apply rounded;
+}

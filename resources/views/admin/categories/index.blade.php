@@ -19,9 +19,9 @@
         <h1 class="text-3xl my-auto"><i class="fas fa-tags text-orange-500"></i> Categories</h1>
     </div>
     <div class="w-1/2 text-right">
-        <button class="modal-open bg-orange-500 hover:bg-orange-700 text-white font-bold my-auto py-2 px-4 rounded">
+        <a href="{{ route('admin.categories.create') }}" class="bg-orange-500 hover:bg-orange-700 text-white font-bold my-auto py-2 px-4 rounded">
             <i class="fas fa-plus"></i> New Category
-        </button>
+        </a>
     </div>
 </div>
 

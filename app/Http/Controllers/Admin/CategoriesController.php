@@ -27,7 +27,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -38,7 +38,16 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|min: 5|max: 50|unique:App\Category,name',
+            'slug' => 'required|min: 5|max: 50|unique:App\Category,slug'
+        ]);
+
+        $validated['slug'] = str_replace([' '], ['_'], $validated['slug']);
+
+        $category = Category::create($validated);
+
+        return Redirect(Route('admin.categories.index'))->with('success', "Created new category {$category->name} with slug {$category->slug}");
     }
 
     /**
