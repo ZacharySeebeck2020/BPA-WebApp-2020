@@ -34,13 +34,21 @@ Route::name('admin.')->prefix('admin')->middleware('administrator')->namespace('
     // Product Routes -----------------------------------------------------
     Route::name('products.')->prefix('products')->group(function () {
         Route::get('/', 'ProductsController@index')->name('index');
+        Route::get('/new', 'ProductsController@create')->name('create');
+        Route::put('/new', 'ProductsController@store')->name('store');
+        Route::get('/{product}', 'ProductsController@edit')->name('edit');
+        Route::post('/{product}', 'ProductsController@update')->name('update');
+        Route::delete('/{product}', 'ProductsController@destroy')->name('delete');
     });
 
     // Category Routes ----------------------------------------------------
     Route::name('categories.')->prefix('categories')->group(function () {
         Route::get('/', 'CategoriesController@index')->name('index');
         Route::get('/new', 'CategoriesController@create')->name('create');
-        Route::put('/new', 'CategoriesController@store')->name('create');
+        Route::put('/new', 'CategoriesController@store')->name('store');
+        Route::get('/{category}', 'CategoriesController@edit')->name('edit');
+        Route::post('/{category}', 'CategoriesController@update')->name('update');
+        Route::delete('/{category}', 'CategoriesController@destroy')->name('delete');
 
     });
 

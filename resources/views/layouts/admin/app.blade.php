@@ -44,10 +44,10 @@
                     </div>
                 @endif
 
-                @if (isset($success))
+                @if (Session::has('success'))
                     <div class="p-3 mt-6 lg:mt-0 rounded-lg shadow bg-green-300 text-grey-500">
                         <ul>
-                            <li class="pl-1 pb-1">{{$success}}</li>
+                            <li class="pl-1 pb-1">{{Session::get('success')}}</li>
                         </ul>
                     </div>
                 @endif

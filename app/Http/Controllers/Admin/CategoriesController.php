@@ -64,34 +64,60 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Category $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit')->with('category', $category);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Category $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|min: 5|max: 50',
+            'slug' => 'required|min: 5|max: 50'
+        ]);
+
+        if ($category->name != $validated['name']) {
+            $request->validate([
+                'name' => 'unique:App\Category,name'
+            ]);
+
+            $category->name = $validated['name'];
+        }
+
+        if ($category->slug != $validated['slug']) {
+            $request->validate([
+                'slug' => 'unique:App\Category,name'
+            ]);
+
+            $category->slug = $validated['slug'];
+        }
+
+        $category->save();
+
+        return Redirect(Route('admin.categories.index'))->with('success', "Updated category {$category->name}.");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Category $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $success = "Successfully deleted the category: " . $category->name;
+        $category->delete();
+
+        return back()->with('success', $success);
     }
 }

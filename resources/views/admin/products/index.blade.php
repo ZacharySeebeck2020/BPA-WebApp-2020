@@ -18,9 +18,9 @@
         <h1 class="text-3xl my-auto"> <i class="fas fa-shopping-bag text-green-500"></i></i> Products</h1>
     </div>
     <div class="w-1/2 text-right">
-        <button class="bg-green-500 hover:bg-green-700 text-white font-bold my-auto py-2 px-4 rounded">
-            <i class="fas fa-plus"></i> New Category
-        </button>
+        <a href="{{{ route('admin.products.create') }}}" class="bg-green-500 hover:bg-green-700 button">
+            <i class="fas fa-plus"></i> New Product
+        </a>
     </div>
 </div>
 
@@ -45,7 +45,7 @@
                     <td class="text-center">{{ $product->name }}</td>
                     <td class="text-center">{{ $product->slug }}</td>
                     <td class="text-center">{{ $product->price }}</td>
-                    <td class="text-center">NULL</td>
+                    <td class="text-center">{{ $product->category->name }}</td>
                     <td class="text-center">{{ $product->featured }}</td>
                     <td class="text-right"></td>
                 </tr>

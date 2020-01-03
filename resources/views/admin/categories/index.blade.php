@@ -27,7 +27,7 @@
 
 
 {{-- Categories Table --}}
-<div id='categories' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+<div id='categories' class="p-8 mt-6 lg:mt-0 mb-16 rounded shadow bg-white">
     <table id="categories_table" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
         <thead>
             <tr>
@@ -43,7 +43,14 @@
                     <td class="text-left">{{ $category->id }}</td>
                     <td class="text-center">{{ $category->name }}</td>
                     <td class="text-center">{{ $category->slug }}</td>
-                    <td class="text-right"></td>
+                    <td class="float-right flex">
+                        <form action="{{ route('admin.categories.delete', $category->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="button_sm button_red"><i class="fas fa-times"></i> Delete</button>
+                        </form>
+                        <a href="{{ route('admin.categories.edit', $category->id) }}" class="button_sm button_green"><i class="fas fa-edit"></i> Edit</button>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

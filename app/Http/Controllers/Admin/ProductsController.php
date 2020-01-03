@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 
 class ProductsController extends Controller
 {
@@ -26,7 +27,9 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        return view('admin.products.create')->with('categories', $categories);
     }
 
     /**

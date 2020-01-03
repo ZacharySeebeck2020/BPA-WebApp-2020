@@ -24,6 +24,10 @@
   margin-bottom: 0.25rem;
 }
 
+.required {
+  color: #e53e3e;
+}
+
 /* Content Classes */
 
 .content_card {
@@ -52,6 +56,36 @@
   padding-left: 1rem;
   padding-right: 1rem;
   border-radius: 0.25rem;
+  display: inline-block;
+}
+
+.button_sm {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  color: #fff;
+  font-weight: 700;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.25rem;
+  display: inline-block;
+}
+
+.button_red {
+  background-color: #f56565;
+}
+
+.button_red:hover {
+  background-color: #c53030;
+}
+
+.button_green {
+  background-color: #48bb78;
+}
+
+.button_green:hover {
+  background-color: #2f855a;
 }
 /**
  * This injects Tailwind's base styles, which is a combination of
