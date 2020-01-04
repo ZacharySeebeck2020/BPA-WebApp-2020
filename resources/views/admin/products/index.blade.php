@@ -29,7 +29,6 @@
     <table id="categories_table" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
         <thead>
             <tr>
-                <th data-priority="0" class="text-left">ID</th>
                 <th data-priority="1">Name</th>
                 <th data-priority="2">Slug</th>
                 <th data-priority="3">Price</th>
@@ -41,13 +40,19 @@
         <tbody>
             @foreach ($products as $product)
                 <tr>
-                    <td class="text-left">{{ $product->id }}</td>
                     <td class="text-center">{{ $product->name }}</td>
                     <td class="text-center">{{ $product->slug }}</td>
                     <td class="text-center">{{ $product->price }}</td>
                     <td class="text-center">{{ $product->category->name }}</td>
-                    <td class="text-center">{{ $product->featured }}</td>
-                    <td class="text-right"></td>
+                    <td class="text-center">{{ $product->featured == 1 ? 'Yes.' : 'No.' }}</td>
+                    <td class="float-right flex">
+                        <form action="{{ route('admin.products.delete', $product->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="button_sm button_red"><i class="fas fa-times"></i> Delete</button>
+                        </form>
+                        <a href="{{ route('admin.products.edit', $product->id) }}" class="button_sm button_green"><i class="fas fa-edit"></i> Edit</button>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

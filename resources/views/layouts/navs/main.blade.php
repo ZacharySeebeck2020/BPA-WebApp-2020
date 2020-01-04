@@ -32,24 +32,24 @@
         id="nav-content">
         <ul class="list-reset lg:flex justify-end flex-1 items-center">
             <li class="mr-3">
-                <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="/">Home</a>
+                <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="{{ route('landing') }}">Home</a>
             </li>
             <li class="mr-3">
                 <a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4"
-                    href="#">All Products</a>
+                    href="{{ route('products.index') }}">All Products</a>
             </li>
             <li class="mr-3">
                 <a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4"
-                    href="#">Featured Products</a>
+                    href="{{ route('products.featured') }}">Featured Products</a>
             </li>
             @guest
             <li class="mr-3">
                 <a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4"
-                    href="/register">Sign Up</a>
+                    href="{{ route('register') }}">Sign Up</a>
             </li>
             <li class="mr-3">
                 <a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4"
-                    href="/login">Login</a>
+                    href="{{ route('login') }}">Login</a>
             </li>
             @else
             <div class="dropdown inline-block relative">

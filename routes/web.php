@@ -10,17 +10,39 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 // All the default authentication routes wrapped into one nice little package.
 Auth::routes();
 
-// Public no authentication routes. ---------------------------------------
+// Public no authentication routes ----------------------------------------
 Route::get('/', 'BasicsController@landing')->name('landing');
+
+// Store Routes -----------------------------------------------------------
+Route::name('products.')->prefix('products')->group(function () {
+    Route::get('/', 'ProductsController@index')->name('index');
+    Route::get('/featured', 'ProductsController@featured')->name('featured');
+    Route::get('/c/{category}', 'ProductsController@create')->name('category.view');
+    Route::get('/p/{product}', 'ProductsController@view')->name('view');
+});
+
+
+
+
 
 // Public auth routes -----------------------------------------------------
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'UserController@home')->name('user.dashboard');
     Route::get('/dashboard/orders', 'UserController@orders')->name('user.orders');
 });
+
+
+
+
+
+
+
+
+
 
 // Administration Routes --------------------------------------------------
 Route::name('admin.')->prefix('admin')->middleware('administrator')->namespace('Admin')->group(function () {
