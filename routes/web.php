@@ -21,7 +21,7 @@ Route::get('/', 'BasicsController@landing')->name('landing');
 Route::name('products.')->prefix('products')->group(function () {
     Route::get('/', 'ProductsController@index')->name('index');
     Route::get('/featured', 'ProductsController@featured')->name('featured');
-    Route::get('/c/{category}', 'ProductsController@create')->name('category.view');
+    Route::get('/c/{category}', 'CategoriesController@view')->name('category.view');
     Route::get('/p/{product}', 'ProductsController@view')->name('view');
 });
 

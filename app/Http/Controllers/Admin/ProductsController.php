@@ -46,6 +46,7 @@ class ProductsController extends Controller
             'price' => 'required|numeric|min:0|max:10000',
             'category' => 'required|numeric|exists:App\Category,id',
             'featured' => 'nullable',
+            'short_description' => 'nullable|min:20|max:150',
             'description' => 'required|min:20',
             'features' => 'nullable|min:20',
         ]);
@@ -57,6 +58,7 @@ class ProductsController extends Controller
             'slug' => $validated['slug'],
             'details' => $validated['features'],
             'price' => $validated['price'],
+            'short_description' => $validated['short_description'],
             'description' => $validated['description'],
             'featured' => array_key_exists('feature', $request->all()),
             'category_id' => $validated['category']
@@ -93,6 +95,7 @@ class ProductsController extends Controller
             'price' => 'required|numeric|min:0|max:10000',
             'category' => 'required|numeric|exists:App\Category,id',
             'featured' => 'nullable',
+            'short_description' => 'nullable|min:20|max:150',
             'description' => 'required|min:20',
             'features' => 'nullable|min:20',
         ]);
@@ -113,7 +116,8 @@ class ProductsController extends Controller
             'name' => $validated['name'],
             'slug' => $validated['slug'],
             'details' => $validated['features'],
-            'price' => $validated['price'],
+            'price' => money_format('%.2n', $validated['price']),
+            'short_description' => $validated['short_description'],
             'description' => $validated['description'],
             'featured' => array_key_exists('feature', $request->all()),
             'category_id' => $validated['category']

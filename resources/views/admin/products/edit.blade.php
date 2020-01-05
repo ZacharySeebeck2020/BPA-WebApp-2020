@@ -106,6 +106,11 @@
             </div>
             <div class="mx-3">
                 <div class="my-5">
+                    <label class="input_label" for="short_description">Short Desctiption</label>
+                    <input class="input_field mb-5" name="short_description" value="{{ old('short_description') ?? $product->short_description }}">
+                </div>
+
+                <div class="my-5">
                     <label class="input_label" for="description">Product Description <span class="required">*</span></label>
                     <textarea class="input_field mb-5" name="description" id="product_description" required>
                         {{ old('description') ?? $product->description }}

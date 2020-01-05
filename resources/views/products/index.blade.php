@@ -19,38 +19,26 @@
         <h1 class="text-xl text-gray-700 pt-5 font-bold mb-3">Search By Category</h1>
         <ul>
             @foreach ($categories as $category)
-                <li><a class="text-lg text-gray-600 my-2" href="#">{{ $category->name }}</a></li>
+                <li><a class="text-lg text-gray-600 my-2" href="{{ route('products.category.view', $category->slug) }}">{{ $category->name }}</a></li>
             @endforeach
         </ul>
     </div>
     <div class="w-9/12 p-5">
-        <div class="w-full py-2 my-2 bg-gray-400 flex">
-            <img src="{{ asset('/img/image-soon.png') }}" class="mx-2 h-40 w-40">
-            <div class="mx-1 w-full h-40 rounded-sm">
-
+        @foreach ($products as $product)
+        <a href="{{ route('products.view', $product->slug) }}">
+            <div class="w-full py-2 my-1 flex border-b-2 rounded-b-sm border-gray-400">
+                <img src="{{ asset('/img/tshirt.jpg') }}" class="mx-2 h-32 w-32 shadow-lg rounded">
+                <div class="mx-1 ml-3 w-full h-30 rounded-sm">
+                    <div class="h-1/4 text-gray-600 text-2xl">
+                        {{ $product->name }} <span class="text-gray-300 text-base ml-1">({{ $product->category->name }})</span>
+                    </div>
+                    <div class="h-2/4 pt-2 text-gray-700 text-lg">
+                        {{ $product->short_description }}</span>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="w-full py-2 my-2 bg-gray-400 flex">
-            <img src="{{ asset('/img/image-soon.png') }}" class="mx-2 h-40 w-40">
-            <div class="mx-1 w-full h-40 rounded-sm">
-
-            </div>
-        </div>
-
-        <div class="w-full py-2 my-2 bg-gray-400 flex">
-            <img src="{{ asset('/img/image-soon.png') }}" class="mx-2 h-40 w-40">
-            <div class="mx-1 w-full h-40 rounded-sm">
-
-            </div>
-        </div>
-
-        <div class="w-full py-2 my-2 bg-gray-400 flex">
-            <img src="{{ asset('/img/image-soon.png') }}" class="mx-2 h-40 w-40">
-            <div class="mx-1 w-full h-40 rounded-sm">
-
-            </div>
-        </div>
+        </a>
+        @endforeach
     </div>
 </div>
 @endsection

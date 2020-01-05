@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('details')->nullable();
             $table->integer('price');
             $table->text('description');
+            $table->string('short_description')->nullable();
             $table->boolean('featured')->default(false);
             $table->integer('category_id');
             $table->foreign('category_id')->references('id')
