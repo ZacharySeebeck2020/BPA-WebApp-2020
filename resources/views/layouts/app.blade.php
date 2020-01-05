@@ -43,7 +43,9 @@
         <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
     </nav>
 
-    @yield('content')
+    <div class="container mx-auto">
+        @yield('content')
+    </div>
 
     <!--Footer-->
     <footer class="bg-white pt-64">

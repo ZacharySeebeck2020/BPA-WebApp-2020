@@ -18,27 +18,37 @@
     <div class="w-3/12 pl-5 p-5 rounded-r-lg border-r-2 border-gray-500">
         <h1 class="text-xl text-gray-700 pt-5 font-bold mb-3">Search By Category</h1>
         <ul>
+            <li><a class="text-lg text-gray-600 my-2 font-bold" href="{{ route('products.index') }}">All Products</a></li>
             @foreach ($categories as $category)
                 <li><a class="text-lg text-gray-600 my-2" href="{{ route('products.category.view', $category->slug) }}">{{ $category->name }}</a></li>
             @endforeach
         </ul>
     </div>
     <div class="w-9/12 p-5">
-        @foreach ($products as $product)
-        <a href="{{ route('products.view', $product->slug) }}">
-            <div class="w-full py-2 my-1 flex border-b-2 rounded-b-sm border-gray-400">
-                <img src="{{ asset('/img/tshirt.jpg') }}" class="mx-2 h-32 w-32 shadow-lg rounded">
-                <div class="mx-1 ml-3 w-full h-30 rounded-sm">
-                    <div class="h-1/4 text-gray-600 text-2xl">
-                        {{ $product->name }} <span class="text-gray-300 text-base ml-1">({{ $product->category->name }})</span>
+        @if ($products->count() > 0)
+            @foreach ($products as $product)
+                <a href="{{ route('products.view', $product->slug) }}">
+                    <div class="w-full py-2 my-1 flex border-b-2 rounded-b-sm border-gray-400">
+                        <img src="{{ asset('/img/tshirt.jpg') }}" class="mx-2 h-32 w-32 shadow-lg rounded">
+                        <div class="mx-1 ml-3 w-full h-30 rounded-sm">
+                            <div class="h-1/4 text-gray-600 text-2xl">
+                                {{ $product->name }} <span class="text-gray-300 text-base ml-1">({{ $product->category->name }})</span>
+                            </div>
+                            <div class="h-1/4 text-gray-500 text-sm">
+                                ${{ $product->price }}
+                            </div>
+                            <div class="h-2/4 pt-2 text-gray-700 text-lg">
+                                {{ $product->short_description }}
+                            </div>
+                        </div>
                     </div>
-                    <div class="h-2/4 pt-2 text-gray-700 text-lg">
-                        {{ $product->short_description }}</span>
-                    </div>
-                </div>
+                </a>
+            @endforeach
+        @else
+            <div class="w-full py-2 my-1">
+                <h2 class="text-gray-700 text-2xl text-center">No Products Found</h2>
             </div>
-        </a>
-        @endforeach
+        @endif
     </div>
 </div>
 @endsection
