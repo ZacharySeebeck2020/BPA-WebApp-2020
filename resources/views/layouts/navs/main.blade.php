@@ -81,6 +81,10 @@
                 </ul>
             </div>
             @endguest
+            <li class="mr-3">
+                <a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4"
+                    href="{{ route('products.index') }}"><i class="fas fa-shopping-cart"></i> (1)</a>
+            </li>
         </ul>
     </div>
 </div>

@@ -31,8 +31,11 @@
                     <div class="w-full py-2 my-1 flex border-b-2 rounded-b-sm border-gray-400">
                         <img src="{{ asset('/img/tshirt.jpg') }}" class="mx-2 h-32 w-32 shadow-lg rounded">
                         <div class="mx-1 ml-3 w-full h-30 rounded-sm">
-                            <div class="h-1/4 text-gray-600 text-2xl">
+                            <div class="h-1/4 text-gray-600 text-2xl flex">
                                 {{ $product->name }} <span class="text-gray-300 text-base ml-1">({{ $product->category->name }})</span>
+                                <form target="" method="POST" class="ml-auto">
+                                    <button type="submit" class="button_sm button_gray text-sm my-auto">Add To Cart</button>
+                                </form>
                             </div>
                             <div class="h-1/4 text-gray-500 text-sm">
                                 ${{ $product->price }}
@@ -49,6 +52,10 @@
                 <h2 class="text-gray-700 text-2xl text-center">No Products Found</h2>
             </div>
         @endif
+
+        <div class="mt-10">
+            {{ $products->links() }}
+        </div>
     </div>
 </div>
 @endsection

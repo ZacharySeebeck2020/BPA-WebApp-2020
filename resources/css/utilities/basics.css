@@ -76,3 +76,19 @@
 .button_green:hover {
     @apply bg-green-700;
 }
+
+.button_blue {
+    @apply bg-blue-500;
+}
+
+.button_blue:hover {
+    @apply bg-blue-700;
+}
+
+.button_gray {
+    @apply bg-gray-500;
+}
+
+.button_gray:hover {
+    @apply bg-gray-700;
+}

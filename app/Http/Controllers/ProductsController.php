@@ -16,9 +16,17 @@ class ProductsController extends Controller
      * @return void
      */
     public function index() {
-        $products = Product::all();
+        $products = Product::paginate(10);
         $categories = Category::all();
 
         return view('products.index')->with('products', $products)->with('categories', $categories);
+    }
+
+    public function view($product) {
+        // Attempt to retrieve the product, but fail if it's not found.
+        $product = Product::where('slug', $product)->firstOrFail();
+
+        return view('products.view')->with('product', $product);
+
     }
 }

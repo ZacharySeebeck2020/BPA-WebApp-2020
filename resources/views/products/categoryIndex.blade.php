@@ -50,6 +50,9 @@
             </div>
         @endif
 
+        <div class="mt-10">
+            {{ $products->links() }}
+        </div>
     </div>
 </div>
 @endsection

@@ -52,6 +52,7 @@
                             <button type="submit" class="button_sm button_red"><i class="fas fa-times"></i> Delete</button>
                         </form>
                         <a href="{{ route('admin.products.edit', $product->id) }}" class="button_sm button_green"><i class="fas fa-edit"></i> Edit</button>
+                        <a href="{{ route('products.view', $product->slug) }}" class="button_sm button_blue"><i class="fas fa-eye"></i> View</button>
                     </td>
                 </tr>
             @endforeach
