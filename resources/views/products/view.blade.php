@@ -23,7 +23,8 @@
         </div>
 
         <div class="mt-10 text-gray-600 text-lg">
-            <form target="" method="POST">
+            <form action="{{ route('cart.add', $product->slug) }}" method="POST">
+                @csrf
                 <button type="submit" class="button button_gray">Add To Cart</button>
             </form>
         </div>

@@ -25,8 +25,12 @@ Route::name('products.')->prefix('products')->group(function () {
     Route::get('/p/{product}', 'ProductsController@view')->name('view');
 });
 
-
-
+// Cart Routes -----------------------------------------------------------
+Route::name('cart.')->prefix('cart')->group(function () {
+    Route::get('/', 'CartController@index')->name('index');
+    Route::post('/{slug}', 'CartController@addProduct')->name('add');
+    Route::delete('/{product_id}', 'CartController@removeProduct')->name('remove');
+});
 
 
 // Public auth routes -----------------------------------------------------
