@@ -57,7 +57,7 @@ class Cart extends Model
 
     public function products()
     {
-        return $this->belongsToMany('App\Product', 'cart_products', 'cart_id', 'product_id');
+        return $this->belongsToMany('App\Product', 'cart_products', 'cart_id', 'product_id')->withPivot('count');
     }
 
     public function productCount() {

@@ -33,7 +33,8 @@
                         <div class="mx-1 ml-3 w-full h-30 rounded-sm">
                             <div class="h-1/4 text-gray-600 text-2xl flex">
                                 {{ $product->name }} <span class="text-gray-300 text-base ml-1">({{ $product->category->name }})</span>
-                                <form target="" method="POST" class="ml-auto">
+                                <form action="{{ route('cart.add', $product->slug) }}" method="POST" class="ml-auto">
+                                    @csrf
                                     <button type="submit" class="button_sm button_gray text-sm my-auto">Add To Cart</button>
                                 </form>
                             </div>

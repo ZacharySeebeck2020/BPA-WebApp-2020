@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/38ef9afc8a.js" crossorigin="anonymous"></script>
 
     {{-- Custom page styling. This will have to be moved into a main blade file at some point. --}}
     <style>
