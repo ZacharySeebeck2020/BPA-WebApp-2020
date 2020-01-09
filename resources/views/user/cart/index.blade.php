@@ -20,14 +20,20 @@
 
     @if ($cart->productCount() == 0)
         <div class="w-full text-center pt-4">
-            <h1 class="text-xl text-gray-500">No items in your cart!</h1>
+            <h2 class="text-xl text-gray-500">No items in your cart!</h2>
             <a href="{{ route('products.index') }}" class="button button_gray mt-5">Continue Shopping</a>
         </div>
     @else
+
+
         @foreach ($cart->products as $product)
             <a href="{{ route('products.view', $product->slug) }}">
                 <div class="w-3/4 mx-auto py-2 mb-10 my-1 flex border-b-2 rounded-b-sm border-gray-400">
-                    <img src="{{ asset('/img/tshirt.jpg') }}" class="mx-2 mb-2 h-16 w-16 shadow-lg rounded">
+                    @if (isset($product->image))
+                        <img src="{{ $product->image }}" class="mx-2 mb-2 h-16 w-16 shadow-lg rounded">
+                    @else
+                        <img src="{{ asset('/img/image-soon.png') }}" class="mx-2 mb-2 h-16 w-16 shadow-lg rounded">
+                    @endif
                     <div class="mx-1 ml-3 w-full h-30 rounded-sm">
                         <div class="h-1/4 text-gray-800 text-2xl flex">
                             {{ $product->name }} <span class="text-gray-600 font-bold text-base ml-1">({{ $product->pivot->count }})</span>
@@ -45,6 +51,13 @@
             </a>
         @endforeach
 
+        <div class="mt-5 w-full content-right flex">
+            <h2 class="text-xl text-gray-500 ml-auto">Ready to checkout?</h2>
+            <form action="{{ route('order.start') }}" method="POST">
+                @csrf
+                <button type="submit" class="button_sm button_green ml-3">Checkout</button>
+            </form>
+        </div>
     @endif
 
 </div>

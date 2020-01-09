@@ -20,7 +20,7 @@
 
 @section('content')
 
-<form action="{{ route('admin.products.update', $product->id) }}" method="POST">
+<form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     {{-- Header --}}
@@ -106,6 +106,18 @@
             </div>
             <div class="mx-3">
                 <div class="my-5">
+                    <label class="input_label" for="image">Product Image (Square aspect ratio reccomended)</label>
+                    <div class="flex w-full items-center justify-center bg-grey-lighter">
+                        <label class="flex items-center px-4 py-2 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue">
+                            <svg class="w-8 h-8 pr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                            </svg>
+                            <span class="text-base leading-normal" id="imageN">Select a product image</span>
+                            <input type='file' id="image" name="image" class="hidden" />
+                        </label>
+                    </div>
+                </div>
+                <div class="my-5">
                     <label class="input_label" for="short_description">Short Desctiption</label>
                     <input class="input_field mb-5" name="short_description" value="{{ old('short_description') ?? $product->short_description }}">
                 </div>
@@ -147,7 +159,12 @@
 @section('scripts')
 <script src="https://cdn.tiny.cloud/1/f7w6hiyzv7ysezi70n72tdd77vwr53z9lrq1yr2l1dqme6cv/tinymce/5/tinymce.min.js">
 </script>
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
 
+{{-- Product WYCIWYG Editor Inilizations --}}
 <script>
     tinymce.init({
         selector: '#product_description'
@@ -157,5 +174,14 @@
         selector: '#product_features'
     });
 
+</script>
+
+{{-- FileInput Custom JavaScript --}}
+<script>
+$('#image').change(function() {
+    var i = $(this).prev('label').clone();
+    var file = $('#image')[0].files[0].name;
+    $('#imageN').text('Selected: ' + file);
+});
 </script>
 @endsection

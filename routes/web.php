@@ -32,6 +32,12 @@ Route::name('cart.')->prefix('cart')->group(function () {
     Route::delete('/{product_id}', 'CartController@removeProduct')->name('remove');
 });
 
+// Cart Routes -----------------------------------------------------------
+Route::name('order.')->prefix('order')->group(function () {
+    Route::post('/c', 'OrdersController@create')->name('start');
+});
+
+
 
 // Public auth routes -----------------------------------------------------
 Route::group(['middleware' => ['auth']], function () {

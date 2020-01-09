@@ -13,7 +13,11 @@
 
 <div class="p-8 flex mt-4">
     <div class="w-1/2">
-        <img src="{{ asset('img/tshirt.jpg') }}" class="mx-auto w-3/4 shadow-lg rounded-lg">
+        @if (isset($product->image))
+            <img src="{{ $product->image }}" class="mx-auto w-3/4 shadow-lg rounded-lg">
+        @else
+            <img src="{{ asset('/img/image-soon.png') }}" class="mx-auto w-3/4 shadow-lg rounded-lg">
+        @endif
     </div>
     <div class="w-1/2 text-left">
         <h2 class="text-gray-800 text-4xl pt-3">{{ $product->name }}</h2>

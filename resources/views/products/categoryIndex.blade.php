@@ -27,22 +27,7 @@
     <div class="w-9/12 p-5">
         @if ($products->count() > 0)
             @foreach ($products as $product)
-                <a href="{{ route('products.view', $product->slug) }}">
-                    <div class="w-full py-2 my-1 flex border-b-2 rounded-b-sm border-gray-400">
-                        <img src="{{ asset('/img/tshirt.jpg') }}" class="mx-2 h-32 w-32 shadow-lg rounded">
-                        <div class="mx-1 ml-3 w-full h-30 rounded-sm">
-                            <div class="h-1/4 text-gray-600 text-2xl">
-                                {{ $product->name }} <span class="text-gray-300 text-base ml-1">({{ $product->category->name }})</span>
-                            </div>
-                            <div class="h-1/4 text-gray-500 text-sm">
-                                ${{ $product->price }}
-                            </div>
-                            <div class="h-2/4 pt-2 text-gray-700 text-lg">
-                                {{ $product->short_description }}
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                @include('products.components.product')
             @endforeach
         @else
             <div class="w-full py-2 my-1">

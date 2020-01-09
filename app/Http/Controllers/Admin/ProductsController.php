@@ -45,6 +45,7 @@ class ProductsController extends Controller
             'slug' => 'required|max:25|min:3|unique:App\Product,slug',
             'price' => 'required|numeric|min:0|max:10000',
             'category' => 'required|numeric|exists:App\Category,id',
+            'image' => 'nullable|file',
             'featured' => 'nullable',
             'short_description' => 'nullable|min:20|max:150',
             'description' => 'required|min:20',
@@ -61,8 +62,12 @@ class ProductsController extends Controller
             'short_description' => $validated['short_description'],
             'description' => $validated['description'],
             'featured' => array_key_exists('feature', $request->all()),
+            'image' => is_null($request->image) ? null : '/storage/products/images/' . $request->image->getClientOriginalName(),
             'category_id' => $validated['category']
         ]);
+
+            if (!is_null($request->image)) { $request->image->storeAs('/public/products/images/', $request->image->getClientOriginalName()); }
+
 
         return Redirect(Route('admin.products.index'))->with('success', "Created new product {$product->name} with slug {$product->slug}");
     }
@@ -98,6 +103,7 @@ class ProductsController extends Controller
             'short_description' => 'nullable|min:20|max:150',
             'description' => 'required|min:20',
             'features' => 'nullable|min:20',
+            'image' => 'nullable',
         ]);
 
         if ($product->name != $validated['name']) {
@@ -112,6 +118,13 @@ class ProductsController extends Controller
             ]);
         }
 
+        if ($request->image) {
+            $image = '/storage/products/images/' . $request->image->getClientOriginalName();
+        $request->image->storeAs('/public/products/images/', $request->image->getClientOriginalName());
+        } else {
+            $image = $product->image;
+        }
+
         $product->update([
             'name' => $validated['name'],
             'slug' => $validated['slug'],
@@ -120,6 +133,7 @@ class ProductsController extends Controller
             'short_description' => $validated['short_description'],
             'description' => $validated['description'],
             'featured' => array_key_exists('feature', $request->all()),
+            'image' => $image,
             'category_id' => $validated['category']
         ]);
 
