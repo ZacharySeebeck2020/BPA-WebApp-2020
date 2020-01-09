@@ -19,4 +19,9 @@ class OrdersController extends Controller
 
         return view('user.cart.checkout')->with('cart', $cart)->with('states', $states);
     }
+
+    public function store()
+    {
+        
+    }
 }
