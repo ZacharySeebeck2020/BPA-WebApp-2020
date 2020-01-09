@@ -35,6 +35,7 @@ Route::name('cart.')->prefix('cart')->group(function () {
 // Cart Routes -----------------------------------------------------------
 Route::name('order.')->prefix('order')->group(function () {
     Route::post('/c', 'OrdersController@create')->name('start');
+    Route::post('/', 'OrdersController@store')->name('store');
 });
 
 
