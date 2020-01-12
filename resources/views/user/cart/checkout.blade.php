@@ -170,6 +170,11 @@
                 </div>
             </a>
         @endforeach
+        <hr class="border-b border-black opacity-25 my-0 py-0" />
+        <div class="flex w-full">
+            <h3 class="text-xl text-gray-600 mb-3">Your Total:</h3>
+            <h3 class="text-xl text-gray-700 mb-3 ml-auto">$152.22</h3>
+        </div>
     </div>
 </div>
 @endsection

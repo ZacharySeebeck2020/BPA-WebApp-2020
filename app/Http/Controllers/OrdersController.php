@@ -22,6 +22,9 @@ class OrdersController extends Controller
 
     public function store()
     {
-        
+        dd($request->all());
+        $request->validate([
+
+        ]);
     }
 }

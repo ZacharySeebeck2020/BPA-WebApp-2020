@@ -20,7 +20,8 @@
         @endif
     </div>
     <div class="w-1/2 text-left">
-        <h2 class="text-gray-800 text-4xl pt-3">{{ $product->name }}</h2>
+        <h2 class="text-gray-700 text-4xl pt-3">{{ $product->name }}</h2>
+        <h2 class="text-gray-800 text-xl pt-2">${{ $product->price }}</h2>
 
         <div class="mt-3 text-gray-600 text-lg">
             {!! $product->description !!}

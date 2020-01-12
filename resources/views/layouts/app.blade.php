@@ -44,6 +44,25 @@
     </nav>
 
     <div class="container mx-auto">
+
+        @if ($errors->any())
+            <div class="p-3 mt-6 lg:mt-0 rounded-lg shadow bg-red-300 text-grey-500">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li class="pl-1 pb-1 text-gray-700">»  {{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @if (Session::has('success'))
+            <div class="p-3 mt-6 lg:mt-0 rounded-lg shadow bg-green-300 text-grey-500">
+                <ul>
+                    <li class="pl-1 pb-1 text-gray-700">{{Session::get('success')}}</li>
+                </ul>
+            </div>
+        @endif
+
         @yield('content')
     </div>
 

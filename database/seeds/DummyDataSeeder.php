@@ -43,21 +43,5 @@ class DummyDataSeeder extends Seeder
                 'image' => $app->image
             ]);
         }
-
-                // Outdoors
-                $outdoors = json_decode(file_get_contents('storage/data/Outdoor.json'));
-                foreach ($outdoors as $key => $outdoor) {
-                    DB::table('products')->insert([
-                        'name' => $outdoor->brand . " " . $outdoor->name,
-                        'slug' => Str::slug($outdoor->slug) . Str::random(5),
-                        'details' => $outdoor->details,
-                        'price' => str_replace('$', '', $outdoor->price),
-                        'description' => $outdoor->description,
-                        'short_description' => $outdoor->short_description,
-                        'featured' => $outdoor->featured,
-                        'category_id' => $outdoor->category_id,
-                        'image' => $outdoor->image
-                    ]);
-                }
     }
 }
