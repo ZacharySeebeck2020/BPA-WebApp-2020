@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<div class="mx-10">
     <h1 class="text-left text-gray-900 text-3xl">Welcome BPA Judges!</h1>
     <h2 class="text-gray-800 text-xl">
         Welcome to our project, we're glad to have you here!
@@ -66,6 +67,7 @@
             standard designs, and be simple to use.
         </p>
     </div>
+</div>
 @endsection
 
 @section('scripts')
