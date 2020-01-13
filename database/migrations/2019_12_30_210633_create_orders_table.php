@@ -18,8 +18,10 @@ class CreateOrdersTable extends Migration
             $table->enum('status', ['OPEN', 'READY', 'SHIPPED', 'DELIVERED', 'CLOSED']);
             $table->enum('type', ['USER', 'ONETIME']);
             $table->string('identifier');
-            $table->date('date_shipped');
-            $table->date('date_delivered');
+            $table->integer('shipping_info');
+            $table->integer('contact_info');
+            $table->date('date_shipped')->nullable();
+            $table->date('date_delivered')->nullable();
             $table->timestamps();
         });
     }

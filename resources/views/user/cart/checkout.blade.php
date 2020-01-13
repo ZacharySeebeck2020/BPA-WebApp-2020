@@ -16,6 +16,7 @@
 
 <div class="flex">
     <form action="{{ route('order.store') }}" class="w-2/3 p-5" method="POST">
+        @csrf
         <div>
             {{-- Contact Information --}}
             <div>
@@ -25,11 +26,11 @@
                     <div class="flex w-full py-3">
                         <div class="w-1/2 pr-2">
                             <label class="input_label" for="name_first">First Name<span class="required">*</span></label>
-                            <input class="input_field w-full" name="name_first" type="text" required value="{{ old('name_first') }}" placeholder="John">
+                            <input class="input_field w-full" name="name_first" type="text" maxlength="50" required value="{{ old('name_first') }}" placeholder="John">
                         </div>
                         <div class="w-1/2 pl-2">
                             <label class="input_label" for="name_last">Last Name<span class="required">*</span></label>
-                            <input class="input_field w-full" name="name_last" type="text" required value="{{ old('name_last') }}" placeholder="Doe">
+                            <input class="input_field w-full" name="name_last" type="text" maxlength="50" required value="{{ old('name_last') }}" placeholder="Doe">
                         </div>
                     </div>
                     <div class="flex w-full py-3">
@@ -41,7 +42,7 @@
                     <div class="flex w-full py-3">
                         <div class="w-full">
                             <label class="input_label" for="phone">Phone Number<span class="required">*</span></label>
-                            <input class="input_field w-full" name="phone" type="text" required value="{{ old('phone') }}" placeholder="john.doe@example.com">
+                            <input class="input_field w-full" name="phone" type="number" maxlength="10" required value="{{ old('phone') }}" placeholder="XXX-XXX-XXXX">
                         </div>
                     </div>
                 </div>
@@ -89,7 +90,7 @@
                     <div class="flex w-full py-3">
                         <div class="w-7/12 pr-2">
                             <label class="input_label" for="cc_num">Card Number (No Dashes)<span class="required">*</span></label>
-                            <input class="input_field w-full" name="cc_num" type="text" required value="{{ old('cc_num') }}" placeholder="XXXXXXXXXXXXXXXX">
+                            <input class="input_field w-full" name="cc_num" type="number" maxlength="16" minlength="16" required value="{{ old('cc_num') }}" placeholder="XXXXXXXXXXXXXXXX">
                         </div>
                         <div class="w-5/12 pl-2">
                             <label class="input_label">Card Expiry Date<span class="required">*</span></label>
@@ -153,7 +154,7 @@
         <hr class="border-b border-black opacity-25 my-0 py-0" />
         @foreach ($cart->products as $product)
             <a href="{{ route('products.view', $product->slug) }}">
-                <div class="w-3/4 mx-auto py-2 mb-10 my-1 flex border-b-2 rounded-b-sm border-gray-400">
+                <div class="w-full mx-auto py-2 my-3 my-1 flex border-b-2 rounded-b-sm border-gray-400">
                     @if (isset($product->image))
                         <img src="{{ $product->image }}" class="mx-2 mb-2 h-16 w-16 shadow-lg rounded">
                     @else

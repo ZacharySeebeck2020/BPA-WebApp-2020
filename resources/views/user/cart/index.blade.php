@@ -53,8 +53,7 @@
 
         <div class="mt-5 w-full content-right flex">
             <h2 class="text-xl text-gray-500 ml-auto">Ready to checkout?</h2>
-            <form action="{{ route('order.start') }}" method="POST">
-                @csrf
+            <form action="{{ route('order.start') }}" method="GET">
                 <button type="submit" class="button_sm button_green ml-3">Checkout</button>
             </form>
         </div>

@@ -37,7 +37,8 @@ Route::name('order.')->prefix('order')->group(function () {
     Route::get('/c', function () {
         return Redirect(route('cart.index'));
     })->name('start');
-    Route::post('/c', 'OrdersController@create')->name('start');
+    Route::get('/c', 'OrdersController@create')->name('start');
+    Route::get('/finish', 'OrdersController@finish')->name('finish');
     Route::post('/', 'OrdersController@store')->name('store');
 });
 
