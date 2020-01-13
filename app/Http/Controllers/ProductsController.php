@@ -21,6 +21,17 @@ class ProductsController extends Controller
         return view('products.index')->with('products', $products)->with('categories', $categories);
     }
 
+    /**
+     * Return featured products
+     *
+     * @return void
+     */
+    public function featured() {
+        $products = Product::where('featured', true)->paginate(10);
+        $categories = Category::all();
+        return view('products.featured')->with('products', $products)->with('categories', $categories);
+    }
+
     public function view($product) {
         // Attempt to retrieve the product, but fail if it's not found.
         $product = Product::where('slug', $product)->firstOrFail();

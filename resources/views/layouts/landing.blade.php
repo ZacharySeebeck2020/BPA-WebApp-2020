@@ -76,7 +76,7 @@
     @yield('content')
 
     <!--Footer-->
-    <footer class="bg-white pt-64">
+    <footer class="bg-white pt-32">
         <hr class="border-b border-black opacity-25 my-0 py-0" />
         <div class="container mx-auto  px-8">
 
