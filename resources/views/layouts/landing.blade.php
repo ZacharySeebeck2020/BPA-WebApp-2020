@@ -27,7 +27,6 @@
         .dropdown:hover .dropdown-menu {
             display: block;
         }
-
     </style>
 
     @yield('style')
@@ -36,6 +35,7 @@
 </head>
 
 <body class="leading-normal tracking-normal text-white" style="font-family: 'Source Sans Pro', sans-serif;">
+    <a href="{{ route('judges') }}" class="button rounded-full fixed bottom-0 right-0 m-5" style="background-color: #6877a7;">BPA</a>
 
     <!--Nav-->
     <nav id="header" class="w-full z-30 top-0 text-white back-image">
