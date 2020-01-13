@@ -15,32 +15,33 @@
 Auth::routes();
 
 // Public no authentication routes ----------------------------------------
-Route::get('/', 'BasicsController@landing')->name('landing');
+    Route::get('/', 'BasicsController@landing')->name('landing');
+    Route::get('/bpa', 'BasicsController@judges')->name('judges');
 
-// Store Routes -----------------------------------------------------------
-Route::name('products.')->prefix('products')->group(function () {
-    Route::get('/', 'ProductsController@index')->name('index');
-    Route::get('/featured', 'ProductsController@featured')->name('featured');
-    Route::get('/c/{category}', 'CategoriesController@view')->name('category.view');
-    Route::get('/p/{product}', 'ProductsController@view')->name('view');
-});
+    // Store Routes -----------------------------------------------------------
+    Route::name('products.')->prefix('products')->group(function () {
+        Route::get('/', 'ProductsController@index')->name('index');
+        Route::get('/featured', 'ProductsController@featured')->name('featured');
+        Route::get('/c/{category}', 'CategoriesController@view')->name('category.view');
+        Route::get('/p/{product}', 'ProductsController@view')->name('view');
+    });
 
-// Cart Routes -----------------------------------------------------------
-Route::name('cart.')->prefix('cart')->group(function () {
-    Route::get('/', 'CartController@index')->name('index');
-    Route::post('/{slug}', 'CartController@addProduct')->name('add');
-    Route::delete('/{product_id}', 'CartController@removeProduct')->name('remove');
-});
+    // Cart Routes -----------------------------------------------------------
+    Route::name('cart.')->prefix('cart')->group(function () {
+        Route::get('/', 'CartController@index')->name('index');
+        Route::post('/{slug}', 'CartController@addProduct')->name('add');
+        Route::delete('/{product_id}', 'CartController@removeProduct')->name('remove');
+    });
 
-// Cart Routes -----------------------------------------------------------
-Route::name('order.')->prefix('order')->group(function () {
-    Route::get('/c', function () {
-        return Redirect(route('cart.index'));
-    })->name('start');
-    Route::get('/c', 'OrdersController@create')->name('start');
-    Route::get('/finish', 'OrdersController@finish')->name('finish');
-    Route::post('/', 'OrdersController@store')->name('store');
-});
+    // Cart Routes -----------------------------------------------------------
+    Route::name('order.')->prefix('order')->group(function () {
+        Route::get('/c', function () {
+            return Redirect(route('cart.index'));
+        })->name('start');
+        Route::get('/c', 'OrdersController@create')->name('start');
+        Route::get('/finish', 'OrdersController@finish')->name('finish');
+        Route::post('/', 'OrdersController@store')->name('store');
+    });
 
 
 

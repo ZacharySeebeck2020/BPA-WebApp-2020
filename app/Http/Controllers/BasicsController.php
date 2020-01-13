@@ -9,4 +9,8 @@ class BasicsController extends Controller
     public function landing() {
         return view('landing');
     }
+
+    public function judges() {
+        return view ('judges');
+    }
 }
