@@ -20,7 +20,8 @@
     </div>
 
     <div class="block lg:hidden pr-4">
-        <button id="nav-toggle" onclick="$('#nav-content').toggleClass('hidden')" class="flex items-center p-1 text-white hover:text-gray-300">
+        <button id="nav-toggle" onclick="$('#nav-content').toggleClass('hidden')"
+            class="flex items-center p-1 text-white hover:text-gray-300">
             <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <title>Menu</title>
                 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
@@ -32,23 +33,24 @@
         id="nav-content">
         <ul class="list-reset lg:flex justify-end flex-1 items-center">
             <li class="mr-3">
-                <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="{{ route('landing') }}">Home</a>
+                <a class="inline-block py-2 px-4 text-white no-underline {{ strpos(Route::currentRouteName(), 'landing') !== false ? "font-bold" : "hover:text-gray-300 hover:text-underline" }}"
+                    href="{{ route('landing') }}">Home</a>
             </li>
             <li class="mr-3">
-                <a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4"
+                <a class="inline-block text-white no-underline py-2 px-4 {{ strpos(Route::currentRouteName(), 'products.index') !== false ? "font-bold" : "hover:text-gray-300 hover:text-underline" }}"
                     href="{{ route('products.index') }}">All Products</a>
             </li>
             <li class="mr-3">
-                <a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4"
+                <a class="inline-block text-white no-underline py-2 px-4{{ strpos(Route::currentRouteName(), 'featured') !== false ? "font-bold" : "hover:text-gray-300 hover:text-underline" }}"
                     href="{{ route('products.featured') }}">Featured Products</a>
             </li>
             @guest
             <li class="mr-3">
-                <a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4"
+                <a class="inline-block text-white no-underline py-2 px-4 {{ strpos(Route::currentRouteName(), 'register') !== false ? "font-bold" : "hover:text-gray-300 hover:text-underline" }}"
                     href="{{ route('register') }}">Sign Up</a>
             </li>
             <li class="mr-3">
-                <a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4"
+                <a class="inline-block text-white no-underline py-2 px-4 {{ strpos(Route::currentRouteName(), 'login') !== false ? "font-bold" : "hover:text-gray-300 hover:text-underline" }}"
                     href="{{ route('login') }}">Login</a>
             </li>
             @else
@@ -61,7 +63,7 @@
                 </button>
                 <ul class="dropdown-menu absolute hidden text-gray-700 pt-1 w-48">
                     @if (\Auth::user()->is_administrator)
-                        <li class=""><a class="bg-gray-300 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    <li class=""><a class="bg-gray-300 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                             href="{{ route('admin.dashboard') }}">Admin Panel</a></li>
                     @endif
 
@@ -83,7 +85,8 @@
             @endguest
             <li class="mr-3">
                 <a class="inline-block text-white no-underline hover:text-gray-300 hover:text-underline py-2 px-4"
-                    href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart"></i> ({{ App\Cart::getActiveCart()->productCount() }})</a>
+                    href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart"></i>
+                    ({{ App\Cart::getActiveCart()->productCount() }})</a>
             </li>
         </ul>
     </div>
