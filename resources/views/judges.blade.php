@@ -27,7 +27,7 @@
                 </div>
                 <div class="lg:w-3/4 lg:mx-auto mt-2">
                     <h4 class="text-gray-800">Password: </h4>
-                    <h4 class="text-gray-700 ml-auto">C0d3D0j0!</h4>
+                    <h4 class="text-gray-700 ml-auto">3W$gP@s$</h4>
                 </div>
             </div>
 
@@ -39,7 +39,7 @@
                 </div>
                 <div class="lg:w-3/4 lg:mx-auto mt-2">
                     <h4 class="text-gray-800">Password: </h4>
-                    <h4 class="text-gray-700 ml-auto">C0d3D0j0!</h4>
+                    <h4 class="text-gray-700 ml-auto">3W$gP@s$</h4>
                 </div>
             </div>
 
