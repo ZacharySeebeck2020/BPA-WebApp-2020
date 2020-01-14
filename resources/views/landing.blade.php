@@ -5,11 +5,11 @@
 @endsection
 
 @section('content')
-<div class="container mx-auto">
+<div class="container mx-auto px-2">
     <h1 class="text-center text-black text-3xl">Featured Products</h1>
-    <div class="mt-4 flex">
+    <div class="mt-4 flex md:flex-row flex-col">
         @foreach ($products as $product)
-            <div class="content_card w-1/4 shadow-lg m-2 shadow-lg">
+            <div class="content_card md:w-1/4 w-full shadow-lg md:m-2 shadow-lg">
                 <h3 class="text-center text-gray-800 text-xl">{{ $product->name }}</h3>
                 @if (isset($product->image))
                     <div style="background-image: url({{ $product->image }}); background-color: white; background-size: contain; width:auto; height: 220px; background-repeat:no-repeat; background-position: center center" class="mx-2 h-64 w-64 rounded mx-auto my-3"></div>
