@@ -51,11 +51,17 @@
             </a>
         @endforeach
 
-        <div class="mt-5 w-full content-right flex">
-            <h2 class="text-xl text-gray-500 ml-auto">Ready to checkout?</h2>
-            <form action="{{ route('order.start') }}" method="GET">
-                <button type="submit" class="button_sm button_green ml-3">Checkout</button>
-            </form>
+        <div class="mt-5 w-full flex">
+            <div class="text-gray-800 text-xl">
+                Total Price: ${{ $cart->getCost() }}
+            </div>
+
+            <div class="ml-auto flex">
+                <h2 class="text-xl text-gray-800 ml-auto">Ready to checkout?</h2>
+                <form action="{{ route('order.start') }}" method="GET">
+                    <button type="submit" class="button_sm button_green ml-3">Checkout</button>
+                </form>
+            </div>
         </div>
     @endif
 

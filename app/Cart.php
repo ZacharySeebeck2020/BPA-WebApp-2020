@@ -118,6 +118,16 @@ class Cart extends Model
     }
 
     public function getCost() {
+        $cart_entries = \DB::table('cart_products')->where('cart_id', $this->id)->get();
 
+        $cost = 0.00;
+
+        foreach($cart_entries as $entry) {
+            $product = Product::find($entry->product_id);
+
+            $cost += $product->price * $entry->count;
+        }
+
+        return $cost;
     }
 }

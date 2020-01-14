@@ -50,11 +50,19 @@ class OrdersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Order $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Order $order)
     {
-        //
+        try {
+            $order->update([
+                'status' => strtoupper($request->status)
+            ]);
+        } catch (\Exception $ex) {
+            return back()->with('errors', ['status' => 'Updated order status to {$request->status}']);
+        }
+
+        return back()->with('success', "Updated order status to {$request->status}");
     }
 }

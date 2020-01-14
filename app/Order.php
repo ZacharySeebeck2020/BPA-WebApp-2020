@@ -19,8 +19,18 @@ class Order extends Model
         return $products->count();
     }
 
-    public function getProductCost() {
+    public function getCost() {
+        $cart_entries = \DB::table('order_products')->where('order_id', $this->id)->get();
 
+        $cost = 0.00;
+
+        foreach($cart_entries as $entry) {
+            $product = Product::find($entry->product_id);
+
+            $cost += $product->price * $entry->count;
+        }
+
+        return $cost;
     }
 
     public function contactInfo() {

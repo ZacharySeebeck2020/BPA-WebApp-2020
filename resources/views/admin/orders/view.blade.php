@@ -86,24 +86,29 @@
 <div class="content_card my-3">
     <h2 class="text-2xl text-gray-800">Order Products</h2>
     @foreach ($order->products as $product)
-            <a href="{{ route('products.view', $product->slug) }}">
-                <div class="w-full mx-auto py-2 mb-10 my-1 flex border-b-2 rounded-b-sm border-gray-400">
-                    @if (isset($product->image))
-                        <img src="{{ $product->image }}" class="mx-2 mb-2 h-16 w-16 shadow-lg rounded">
-                    @else
-                        <img src="{{ asset('/img/image-soon.png') }}" class="mx-2 mb-2 h-16 w-16 shadow-lg rounded">
-                    @endif
-                    <div class="mx-1 ml-3 w-full h-30 rounded-sm">
-                        <div class="h-1/4 text-gray-800 text-2xl flex">
-                            {{ $product->name }} <span class="text-gray-600 font-bold text-base ml-1">({{ $product->pivot->count }})</span>
-                        </div>
-                        <div class="h-1/4 text-gray-500 text-sm">
-                            ${{ $product->price }}
-                        </div>
+        <a href="{{ route('products.view', $product->slug) }}">
+            <div class="w-full mx-auto py-2 mb-10 my-1 flex border-b-2 rounded-b-sm border-gray-400">
+                @if (isset($product->image))
+                    <img src="{{ $product->image }}" class="mx-2 mb-2 h-16 w-16 shadow-lg rounded">
+                @else
+                    <img src="{{ asset('/img/image-soon.png') }}" class="mx-2 mb-2 h-16 w-16 shadow-lg rounded">
+                @endif
+                <div class="mx-1 ml-3 w-full h-30 rounded-sm">
+                    <div class="h-1/4 text-gray-800 text-2xl flex">
+                        {{ $product->name }} <span class="text-gray-600 font-bold text-base ml-1">({{ $product->pivot->count }})</span>
+                    </div>
+                    <div class="h-1/4 text-gray-500 text-sm">
+                        ${{ $product->price }}
                     </div>
                 </div>
-            </a>
-        @endforeach
+            </div>
+        </a>
+    @endforeach
+    <div class="mt-5 w-full flex border-t-2 border-gray-600">
+        <div class="text-gray-600 text-xl mt-1">
+            Total Price: ${{ $order->getCost() }}
+        </div>
+    </div>
 </div>
 
 @endsection

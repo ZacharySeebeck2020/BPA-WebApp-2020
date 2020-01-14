@@ -54,7 +54,10 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-
+Route::get('/ccc', function () {
+    $o = \App\Order::find(1);
+    return $o->getCost();
+});
 
 
 
