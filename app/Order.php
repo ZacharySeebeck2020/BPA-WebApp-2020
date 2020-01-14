@@ -10,12 +10,24 @@ class Order extends Model
 
     public function products()
     {
-        return $this->belongsToMany('App\Product', 'cart_products', 'cart_id', 'product_id')->withPivot('count');
+        return $this->belongsToMany('App\Product', 'order_products', 'order_id', 'product_id')->withPivot('count');
     }
 
     public function productCount() {
-        $products = $this->belongsToMany('App\Product', 'cart_products', 'cart_id', 'product_id');
+        $products = $this->belongsToMany('App\Product', 'order_products', 'order_id', 'product_id');
 
         return $products->count();
+    }
+
+    public function getProductCost() {
+
+    }
+
+    public function contactInfo() {
+        return $this->hasOne('App\ContactInformation', 'id', 'contact_info');
+    }
+
+    public function shippingInfo() {
+        return $this->hasOne('App\ShippingInformation', 'id', 'shipping_info');
     }
 }

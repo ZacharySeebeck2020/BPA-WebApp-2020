@@ -67,6 +67,10 @@ Route::name('admin.')->prefix('admin')->middleware('administrator')->namespace('
     // Order Routes -------------------------------------------------------
     Route::name('orders.')->prefix('orders')->group(function () {
         Route::get('/', 'OrdersController@index')->name('index');
+        Route::get('/s/{status}', 'OrdersController@indexStatus')->name('index_by_status');
+        Route::get('/{order}', 'OrdersController@show')->name('view');
+        Route::post('/{order}', 'OrdersController@update')->name('update');
+        Route::delete('/{order}', 'OrdersController@destroy')->name('delete');
     });
 
     // Product Routes -----------------------------------------------------

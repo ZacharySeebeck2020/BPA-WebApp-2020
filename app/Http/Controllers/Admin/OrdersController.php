@@ -4,60 +4,46 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Order;
 
 class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response\
      */
     public function index()
     {
-        return view('admin.orders.index');
+        $orders = Order::all();
+        return view('admin.orders.index')->with('orders', $orders);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display all orders with a given status.
+     *
+     * @param String $status The requested status to sort by.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function indexStatus($status)
     {
-        //
+        $orders = Order::where('status', $status)->get();
+        return view('admin.orders.index')->with('orders', $orders)->with('status', $status);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Display the specified order.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Order $order The given order the user wants to view.
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function show(Order $order)
     {
-        //
-    }
+        $contactInformation = $order->contactInfo;
+        $shippingInformation = $order->shippingInfo;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return view('admin.orders.view')->with('order', $order)->with('contactInformation', $contactInformation)->with('shippingInformation', $shippingInformation);
     }
 
     /**
@@ -68,17 +54,6 @@ class OrdersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
     {
         //
     }
