@@ -18,8 +18,8 @@
             your own account as well if you choose, but you need to use the provided administator account
             to access any of the backend functions.
         </p>
-        <div class="flex mt-2">
-            <div class="content_card w-1/3 shadow-lg m-4">
+        <div class="flex md:flex-row flex-col mt-2">
+            <div class="content_card md:w-1/3 w-full shadow-lg m-4">
                 <h3 class="text-gray-900 text-xl w-full text-center">Standard User</h3>
                 <div class="lg:w-3/4 lg:mx-auto mt-2">
                     <h4 class="text-gray-800">Email Address: </h4>
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <div class="content_card w-1/3 shadow-lg m-4">
+            <div class="content_card md:w-1/3 w-full shadow-lg m-4">
                 <h3 class="text-gray-800 text-xl w-full text-center">Administrative User</h3>
                 <div class="lg:w-3/4 lg:mx-auto mt-2">
                     <h4 class="text-gray-800">Email Address: </h4>
@@ -43,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="content_card w-1/3 shadow-lg m-4">
+            <div class="content_card md:w-1/3 w-full shadow-lg m-4">
                 <h3 class="text-gray-800 text-xl w-full text-center">cPanel</h3>
                 <div class="lg:w-3/4 lg:mx-auto mt-2">
                     <h4 class="text-gray-800">Address:</h4>
