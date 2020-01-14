@@ -14,6 +14,20 @@
     @apply shadow-outline;
 }
 
+.input_field_sm {
+    @apply w-full;
+    @apply px-5;
+    @apply text-gray-700;
+    @apply bg-gray-100;
+    @apply rounded;
+}
+
+.input_field_sm:focus {
+    @apply outline-none;
+    @apply bg-white;
+    @apply shadow-outline;
+}
+
 .input_label {
     @apply block;
     @apply text-lg;

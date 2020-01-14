@@ -21,6 +21,7 @@ Auth::routes();
     // Store Routes -----------------------------------------------------------
     Route::name('products.')->prefix('products')->group(function () {
         Route::get('/', 'ProductsController@index')->name('index');
+        Route::post('/', 'ProductsController@search')->name('search');
         Route::get('/featured', 'ProductsController@featured')->name('featured');
         Route::get('/c/{category}', 'CategoriesController@view')->name('category.view');
         Route::get('/p/{product}', 'ProductsController@view')->name('view');

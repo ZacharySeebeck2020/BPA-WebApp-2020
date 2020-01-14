@@ -21,6 +21,18 @@ class ProductsController extends Controller
         return view('products.index')->with('products', $products)->with('categories', $categories);
     }
 
+    public function search(Request $request) {
+        $validated = $request->validate([
+            'query' => 'required|max:150'
+        ]);
+
+        $products = Product::where('name','LIKE','%' . $validated['query'] . '%')
+                ->orWhere('short_description','LIKE','%' . $validated['query'] . '%')
+                ->get();
+        $categories = Category::all();
+        return view('products.search')->with('products', $products)->with('categories', $categories)->with('query', $validated['query']);
+    }
+
     /**
      * Return featured products
      *
