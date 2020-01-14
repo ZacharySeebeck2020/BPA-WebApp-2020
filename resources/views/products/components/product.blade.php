@@ -6,9 +6,9 @@
             <img src="{{ asset('/img/image-soon.png') }}" class="mx-2 h-32 w-32 shadow-lg rounded">
         @endif
         <div class="mx-1 ml-3 w-full h-30 rounded-sm">
-            <div class="h-1/4 text-gray-600 text-2xl flex">
-                {{ $product->name }} <span class="text-gray-300 text-base ml-1">({{ $product->category->name }})</span>
-                <form action="{{ route('cart.add', $product->slug) }}" method="POST" class="ml-auto">
+            <div class="h-1/4 text-gray-600 text-2xl flex md:flex-row flex-col">
+                {{ $product->name }} <span class="text-gray-300 text-base ml-1 md:visible hidden">({{ $product->category->name }})</span>
+                <form action="{{ route('cart.add', $product->slug) }}" method="POST" class="md:ml-auto md:my-auto py-1">
                     @csrf
                     <button type="submit" class="button_sm button_gray text-sm my-auto">Add To Cart</button>
                 </form>

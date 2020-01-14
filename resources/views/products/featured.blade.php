@@ -6,16 +6,13 @@
 
 @section('content')
 <div class="p-8 flex flex-row">
-    <div class="w-1/2">
+    <div class="w-full">
         <h1 class="text-3xl my-auto text-gray-700 ml-5"> <i class="fas fa-shopping-bag text-blue-600 mr-2"></i></i> Featured Products</h1>
-    </div>
-    <div class="w-1/2 text-right">
-
     </div>
 </div>
 
-<div class="flex">
-    <div class="w-3/12 pl-5 p-5 rounded-r-lg border-r-2 border-gray-500">
+<div class="flex md:flex-row flex-col">
+    <div class="md:w-3/12 w-full pl-5 p-5 rounded-r-lg border-r-2 border-none md:border-gray-500">
         <h1 class="text-xl text-gray-700 pt-5 font-bold mb-3">Search By Category</h1>
         <ul>
             <li><a class="text-lg text-gray-600 my-2 font-bold" href="{{ route('products.index') }}">All Products</a></li>
@@ -24,7 +21,8 @@
             @endforeach
         </ul>
     </div>
-    <div class="w-9/12 p-5">
+
+    <div class="md:w-9/12 w-full p-5">
         @if ($products->count() > 0)
             @foreach ($products as $product)
                 @include('products.components.product')
