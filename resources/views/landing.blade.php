@@ -14,7 +14,7 @@
                 @if (isset($product->image))
                     <div style="background-image: url({{ $product->image }}); background-color: white; background-size: contain; width:auto; height: 220px; background-repeat:no-repeat; background-position: center center" class="mx-2 h-64 w-64 rounded mx-auto my-3"></div>
                 @else
-                    <img src="{{ asset('/img/image-soon.png') }}" class="mx-2 h-32 w-32 shadow-lg rounded mx-auto my-3">
+                    <div style="background-image: url({{ asset('/img/image-soon.png') }}); background-color: white; background-size: contain; width:auto; height: 220px; background-repeat:no-repeat; background-position: center center" class="mx-2 h-64 w-64 rounded mx-auto my-3"></div>
                 @endif
 
                 <div class="w-full text-center">
