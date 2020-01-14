@@ -53,16 +53,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-
-Route::get('/ccc', function () {
-    $o = \App\Order::find(1);
-    return $o->getCost();
-});
-
-
-
-
-
 // Administration Routes --------------------------------------------------
 Route::name('admin.')->prefix('admin')->middleware('administrator')->namespace('Admin')->group(function () {
     Route::get('/', 'BasicsController@index')->name('dashboard');

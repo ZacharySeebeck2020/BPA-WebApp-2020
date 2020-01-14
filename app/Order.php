@@ -8,6 +8,10 @@ class Order extends Model
 {
     protected $guarded = ['id'];
 
+    public static function getOrderCountByStatus($status) {
+        return Order::where('status', $status)->get()->count();
+    }
+
     public function products()
     {
         return $this->belongsToMany('App\Product', 'order_products', 'order_id', 'product_id')->withPivot('count');
