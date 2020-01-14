@@ -12,7 +12,7 @@
             <div class="content_card w-1/4 shadow-lg m-2 shadow-lg">
                 <h3 class="text-center text-gray-800 text-xl">{{ $product->name }}</h3>
                 @if (isset($product->image))
-                    <div style="background-image: url({{ $product->image }}); background-color: white; background-size: contain; width:auto; height: 180px; background-repeat:no-repeat; background-position: center center" class="mx-2 h-64 w-64 rounded mx-auto my-3"></div>
+                    <div style="background-image: url({{ $product->image }}); background-color: white; background-size: contain; width:auto; height: 220px; background-repeat:no-repeat; background-position: center center" class="mx-2 h-64 w-64 rounded mx-auto my-3"></div>
                 @else
                     <img src="{{ asset('/img/image-soon.png') }}" class="mx-2 h-32 w-32 shadow-lg rounded mx-auto my-3">
                 @endif
