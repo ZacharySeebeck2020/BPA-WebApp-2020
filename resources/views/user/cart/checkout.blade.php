@@ -6,16 +6,13 @@
 
 @section('content')
 <div class="p-8 flex flex-row">
-    <div class="w-1/2">
+    <div class="w-full">
         <h1 class="text-3xl pb-auto-auto text-gray-700 ml-5"> <i class="fas fa-shopping-bag text-green-600 mr-2"></i></i> Checkout</h1>
-    </div>
-    <div class="w-1/2 text-right">
-
     </div>
 </div>
 
-<div class="flex">
-    <form action="{{ route('order.store') }}" class="w-2/3 p-5" method="POST">
+<div class="flex md:flex-row flex-col">
+    <form action="{{ route('order.store') }}" class="md:w-2/3 w-full p-5" method="POST">
         @csrf
         <div>
             {{-- Contact Information --}}
@@ -87,7 +84,7 @@
                 <h1 class="text-xl text-gray-700 font-bold mb-3">Payment Information</h1>
                 <hr class="border-b border-black opacity-25 my-0 py-0" />
                 <div class="w-10/12 p-5 w-full">
-                    <div class="flex w-full py-3">
+                    <div class="flex md:flex-row flex-col w-full py-3">
                         <div class="w-7/12 pr-2">
                             <label class="input_label" for="cc_num">Card Number (No Dashes)<span class="required">*</span></label>
                             <input class="input_field w-full" name="cc_num" type="number" maxlength="16" minlength="16" required value="{{ old('cc_num') }}" placeholder="XXXXXXXXXXXXXXXX">
@@ -141,7 +138,7 @@
                 <hr class="border-b border-black opacity-25 my-1" />
                 <div class="w-10/12 p-5 w-full">
                     <div class="flex w-full py-3">
-                        <button type="submit" class="ml-auto button button_green">Complete Order</button>
+                        <button type="submit" class="md:ml-auto mx-auto button button_green">Complete Order</button>
                     </div>
                 </div>
             </div>
@@ -149,7 +146,7 @@
     </form>
 
     {{-- Cart Information --}}
-    <div class="w-1/3 pl-5 p-5 rounded-r-lg border-l-2 border-gray-500">
+    <div class="md:w-1/3 w-full pl-5 p-5 rounded-r-lg border-l-2 border-gray-500">
         <h1 class="text-xl text-gray-700  font-bold mb-3 text-center">Your Cart</h1>
         <hr class="border-b border-black opacity-25 my-0 py-0" />
         @foreach ($cart->products as $product)
