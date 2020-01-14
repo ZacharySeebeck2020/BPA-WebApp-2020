@@ -20,7 +20,7 @@
     </div>
 
     <div class="block lg:hidden pr-4">
-        <button id="nav-toggle" class="flex items-center p-1 text-white hover:text-gray-300">
+        <button id="nav-toggle" onclick="$('#nav-content').toggleClass('hidden')" class="flex items-center p-1 text-white hover:text-gray-300">
             <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <title>Menu</title>
                 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
