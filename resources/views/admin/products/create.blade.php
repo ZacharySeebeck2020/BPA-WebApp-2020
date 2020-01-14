@@ -19,8 +19,13 @@
 @endsection
 
 @section('content')
+<div id="errors" class="p-3 mt-6 lg:mt-0 rounded-lg shadow bg-red-300 text-grey-500 hidden">
+    <ul id="errorList">
+            <li class="pl-1 pb-1">»  Uh Oh.</li>
+    </ul>
+</div>
 
-<form action="{{ route('admin.products.create') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.products.create') }}" method="POST" id="product_form" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -33,9 +38,9 @@
             <a href="{{ route('admin.products.index') }}" class="button button_red">
                 <i class="fas fa-times"></i> Cancel
             </a>
-            <button type="submit" class="button button_green">
+            <a type="submit" onclick="submitForm()" class="button button_green">
                 <i class="fas fa-plus"></i> Create
-            </button>
+            </a>
         </div>
     </div>
 
@@ -48,26 +53,26 @@
             <div class="mx-3">
                 <div class="my-2">
                     <label class="input_label" for="name">Name <span class="required">*</span></label>
-                    <input class="input_field" name="name" type="text" required value="{{ old('name') }}"
+                    <input class="input_field" name="name" id="name" type="text" required value="{{ old('name') }}"
                         placeholder="Product Name (ex. T-Shirt)">
                 </div>
 
                 <div class="my-5">
                     <label class="input_label" for="slug">Slug <span class="required">*</span> <span class="text-gray-600">{{ config('app.url')}}/{slug} )</span></label>
-                    <input class="input_field" name="slug" type="text" required value="{{ old('slug') }}"
+                    <input class="input_field" name="slug" id="slug" type="text" required value="{{ old('slug') }}"
                         placeholder="URL Slug (ex. t-shirt)" required>
                 </div>
 
                 <div class="my-5">
                     <label class="input_label" for="price">Price <span class="required">*</span></label>
-                    <input class="input_field" name="price" type="text" required value="{{ old('price') }}"
+                    <input class="input_field" name="price" id="price" type="text" required value="{{ old('price') }}"
                         placeholder="$12.53">
                 </div>
 
                 <div class="my-5">
                     <div class="relative">
                         <label class="input_label" for="category">Product Category <span class="required">*</span></label>
-                        <select required name="category" class="input_field appearance-none">
+                        <select required name="category" id="category" class="input_field appearance-none">
                             <option {{ old('category') ? '' : 'selected' }} disabled>Select A Category</option>
                             @foreach ($categories as $category)
                                 <option {{ old('category') == $category->id ? 'selected' : ''}} value="{{ $category->id}}">{{ $category->name }}</option>
@@ -120,7 +125,7 @@
                 </div>
                 <div class="my-5">
                     <label class="input_label" for="short_description">Short Desctiption</label>
-                    <input class="input_field mb-5" name="short_description" value="{{ old('short_description') }}">
+                    <input class="input_field mb-5" name="short_description" id="short_description" value="{{ old('short_description') }}">
                 </div>
 
                 <div class="my-5">
@@ -147,9 +152,9 @@
             <a href="{{ route('admin.products.index') }}" class="button button_red">
                 <i class="fas fa-times"></i> Cancel
             </a>
-            <button type="submit" class="button button_green">
+            <a type="submit" onclick="submitForm()" class="button button_green">
                 <i class="fas fa-plus"></i> Create
-            </button>
+            </a>
         </div>
     </div>
 
@@ -184,5 +189,62 @@ $('#image').change(function() {
     var file = $('#image')[0].files[0].name;
     $('#imageN').text('Selected: ' + file);
 });
+
+function submitForm() {
+    let hasError = false;
+    $("#errorList").empty();
+
+
+    if ($("#name").val().length < 5) {
+        $("#errorList").append('<li class="pl-1 pb-1">»  The product name must be at least 5 characters long</li>');
+        hasError = true;
+    }
+    else if ($("#name").val().length > 50) {
+        $("#errorList").append('<li class="pl-1 pb-1">»  The product name must be less than 50 characters long</li>');
+        hasError = true;
+    }
+
+    if ($("#slug").val().length < 5) {
+        $("#errorList").append('<li class="pl-1 pb-1">»  The product slug must be at least 3 characters long</li>');
+        hasError = true;
+    }
+    else if ($("#slug").val().length > 25) {
+        $("#errorList").append('<li class="pl-1 pb-1">»  The product slug must be less than 25 characters long</li>');
+        hasError = true;
+    }
+
+    if (!$.isNumeric($("#price").val())) {
+        $("#errorList").append('<li class="pl-1 pb-1">»  The product price must be numeric</li>');
+        hasError = true;
+    }
+    else if ($("#price").val() < 0) {
+        $("#errorList").append('<li class="pl-1 pb-1">»  The product price must be a positive number</li>');
+        hasError = true;
+    }
+    else if ($("#price").val().length > 10000) {
+        $("#errorList").append('<li class="pl-1 pb-1">»  The product price must be less than $10,000</li>');
+        hasError = true;
+    }
+
+    if ($("#category").val() == null) {
+        $("#errorList").append('<li class="pl-1 pb-1">»  A product category must be selected</li>');
+        hasError = true;
+    }
+
+    if ($("#short_description").val().length != 0 && $("#short_description").val().length < 20) {
+        $("#errorList").append('<li class="pl-1 pb-1">»  The product short desctiption must be at least 20 characters long</li>');
+        hasError = true;
+    }
+    else if ($("#short_description").val().length > 0 && $("#short_description").val().length > 150) {
+        $("#errorList").append('<li class="pl-1 pb-1">»  The product short desctiption must be less than 150 characters long</li>');
+        hasError = true;
+    }
+
+
+
+    if (!hasError) $('#product_form').submit();
+    else $("#errors").removeClass('hidden');
+};
+
 </script>
 @endsection
