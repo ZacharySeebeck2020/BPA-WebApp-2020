@@ -44,15 +44,11 @@ Auth::routes();
         Route::post('/', 'OrdersController@store')->name('store');
     });
 
-
-
 // Public auth routes -----------------------------------------------------
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'UserController@home')->name('user.dashboard');
     Route::get('/dashboard/orders', 'UserController@orders')->name('user.orders');
 });
-
-
 
 // Administration Routes --------------------------------------------------
 Route::name('admin.')->prefix('admin')->middleware('administrator')->namespace('Admin')->group(function () {
@@ -85,11 +81,5 @@ Route::name('admin.')->prefix('admin')->middleware('administrator')->namespace('
         Route::get('/{category}', 'CategoriesController@edit')->name('edit');
         Route::post('/{category}', 'CategoriesController@update')->name('update');
         Route::delete('/{category}', 'CategoriesController@destroy')->name('delete');
-
-    });
-
-    // Coupon Routes ------------------------------------------------------
-    Route::name('coupons.')->prefix('coupons')->group(function () {
-        Route::get('/', 'CouponsController@index')->name('index');
     });
 });

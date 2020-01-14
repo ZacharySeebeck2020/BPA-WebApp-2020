@@ -17,6 +17,11 @@ class Category extends Model
     ];
 
 
+    /**
+     * Return a collection of all products connected to that category.
+     *
+     * @return Collection
+     */
     public function Products() {
         return $this->hasMany('App\Product');
     }
