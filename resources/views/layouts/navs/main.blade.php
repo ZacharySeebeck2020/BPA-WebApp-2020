@@ -70,7 +70,7 @@
                     <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                             href="{{ route('user.dashboard') }}">Account Information</a></li>
                     <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                            href="{{ route('user.orders') }}">Your Orders</a></li>
+                            href="{{ route('user.dashboard') }}">Your Orders</a></li>
 
                     <li class="">
                         <a href="{{ route('logout') }}"

@@ -23,7 +23,9 @@ class UserController extends Controller
      */
     public function home()
     {
-        return view('user.home');
+        $orders = \App\Order::where('type', 'USER')->where('identifier', \Auth::user()->id)->get();
+        // dd($orders);
+        return view('user.home')->with('orders', $orders);
     }
 
     /**
