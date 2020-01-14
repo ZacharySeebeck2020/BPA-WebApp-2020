@@ -67,6 +67,23 @@
             standard designs, and be simple to use.
         </p>
     </div>
+
+    <h4 class="text-gray-800 text-xl mt-5">
+        To Satisfy Any Further Requirements.
+    </h4>
+
+    <div class="p-4 text-gray-700 text-lg">
+        <p>
+            This project was created in whole by students a part of the BAISD-CC-AM (04-0011-0021) Business Professionals of America chapter.
+        </p>
+        <p class="text-gray-800 text-xl mt-2">Students Involved:</p>
+        <ul class="ml-4">
+            <li>Zachary Seebeck</li>
+            <li>Nicholas Stothard</li>
+            <li>Anthony Chippi</li>
+            <li>Samantha McGuire</li>
+        </ul>
+    </div>
 </div>
 @endsection
 
