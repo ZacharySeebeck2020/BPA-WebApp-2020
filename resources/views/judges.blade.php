@@ -95,10 +95,10 @@
     </h4>
 
     <div class="mt-3 p-4 text-gray-700 text-lg">
-        <div class="w-1/2 flex flex-col">
-            <a href="/files/ewsg_webapp.zip" class="button button_blue my-2 w-3/4">Download Project .zip</a>
-            <a href="/files/ewsg_works_sited.pdf" class="button button_blue my-2 w-3/4">Download Works Cited</a>
-            <a href="/files/ewsg_database_schema.zip" class="button button_blue my-2 w-3/4">Download Database Schema .zip</a>
+        <div class="md:w-1/2 w-full flex flex-col">
+            <a href="/files/ewsg_webapp.zip" class="button button_blue my-2 md:w-3/4 w-full">Download Project .zip</a>
+            <a href="/files/ewsg_works_sited.pdf" class="button button_blue my-2 md:w-3/4 w-full">Download Works Cited</a>
+            <a href="/files/ewsg_database_schema.zip" class="button button_blue my-2 md:w-3/4 w-full">Download Database Schema .zip</a>
         </div>
     </div>
 </div>
