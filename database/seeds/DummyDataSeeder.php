@@ -43,5 +43,21 @@ class DummyDataSeeder extends Seeder
                 'image' => $app->image
             ]);
         }
+
+        // Outdoor
+        $apparel = json_decode(file_get_contents('storage/data/Outdoor.json'));
+        foreach ($apparel as $key => $app) {
+            DB::table('products')->insert([
+                'name' => $app->brand . " " . $app->name,
+                'slug' => Str::slug($app->slug) . Str::random(5),
+                'details' => $app->details,
+                'price' => str_replace('$', '', $app->price),
+                'description' => $app->description,
+                'short_description' => $app->short_description,
+                'featured' => $app->featured,
+                'category_id' => $app->category_id,
+                'image' => $app->image
+            ]);
+        }
     }
 }
