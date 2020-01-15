@@ -20,7 +20,6 @@ class BasicsController extends Controller
         return view('landing')->with('products', $featureProducts);
     }
 
-
     /**
      * Return the BPA Judges page.
      *
@@ -28,5 +27,42 @@ class BasicsController extends Controller
      */
     public function judges() {
         return view ('judges');
+    }
+
+    /**
+     * Return the terms of service page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function terms() {
+        return view ('terms');
+    }
+
+    /**
+    * Return the privacy policy page.
+    *
+    * @return \Illuminate\Http\Response
+    */
+   public function privacy() {
+       return view ('privacy');
+   }
+
+    /**
+    * Return the faq page.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function faq() {
+        return view ('faq');
+    }
+
+
+    /**
+     * Return the welcome page for new people who register
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function welcomeRegister() {
+        return view('user.welcome');
     }
 }

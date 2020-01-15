@@ -44,8 +44,14 @@ Auth::routes();
         Route::post('/', 'OrdersController@store')->name('store');
     });
 
+    Route::get('/terms', 'BasicsController@terms')->name('terms');
+    Route::get('/privacy', 'BasicsController@privacy')->name('privacy');
+    Route::get('/faq', 'BasicsController@faq')->name('faq');
+
+
 // Public auth routes -----------------------------------------------------
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/welcome', 'BasicsController@welcomeRegister')->name('user.welcome');
     Route::get('/dashboard', 'UserController@home')->name('user.dashboard');
     Route::get('/dashboard/orders', 'UserController@orders')->name('user.orders');
 });
