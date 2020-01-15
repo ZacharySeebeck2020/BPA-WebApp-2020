@@ -81,7 +81,7 @@
             <div class="w-full flex flex-col md:flex-row py-6">
 
                 <div class="flex-1 mb-6 pr-32">
-                    <a class="text-black no-underline hover:no-underline font-bold text-2xl lg:text-2xl" href="{{ route('landing') }}">
+                    <a class="text-black no-underline hover:no-underline font-bold text-2xl lg:text-2xl" href="#">
                         <svg class="h-8 pr-3 fill-current inline px-auto" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 51.31 47.82">
                             <g>
@@ -105,14 +105,10 @@
                     <p class="uppercase text-gray-500 md:mb-6">Links</p>
                     <ul class="list-reset mb-6">
                         <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                            <a href="#" class="no-underline hover:underline text-gray-800 hover:text-orange-500">FAQ</a>
+                            <a href="{{ route('faq') }}" class="no-underline hover:underline text-gray-800 hover:text-orange-500">FAQ</a>
                         </li>
                         <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                            <a href="#"
-                                class="no-underline hover:underline text-gray-800 hover:text-orange-500">Help</a>
-                        </li>
-                        <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                            <a href="#"
+                            <a href="mailto:support@ewsg.cf"
                                 class="no-underline hover:underline text-gray-800 hover:text-orange-500">Support</a>
                         </li>
                     </ul>
@@ -121,11 +117,11 @@
                     <p class="uppercase text-gray-500 md:mb-6">Legal</p>
                     <ul class="list-reset mb-6">
                         <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                            <a href="#"
+                            <a href="{{ route('terms') }}"
                                 class="no-underline hover:underline text-gray-800 hover:text-orange-500">Terms</a>
                         </li>
                         <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                            <a href="#"
+                            <a href="{{ route('privacy') }}"
                                 class="no-underline hover:underline text-gray-800 hover:text-orange-500">Privacy</a>
                         </li>
                     </ul>
