@@ -96,7 +96,8 @@
 
     <div class="mt-3 p-4 text-gray-700 text-lg">
         <div class="md:w-1/2 w-full flex flex-col">
-            <a href="/files/ewsg_webapp.zip" class="button button_blue my-2 md:w-3/4 w-full">Download Project .zip</a>
+            <a href="/files/ewsg_webapp.zip" class="button button_blue mt-2 md:w-3/4 w-full">Download Project .zip</a>
+            <a href="https://github.com/ZacharySeebeck2020/BPA-WebApp-2020/archive/v1.0.2.zip" class="text-sm mt-1 mb-2 md:w-3/4 w-full">If that download doesn't work, try this mirror.</a>
             <a href="/files/ewsg_works_sited.pdf" class="button button_blue my-2 md:w-3/4 w-full">Download Works Cited</a>
             <a href="/files/ewsg_database_schema.zip" class="button button_blue my-2 md:w-3/4 w-full">Download Database Schema .zip</a>
         </div>
