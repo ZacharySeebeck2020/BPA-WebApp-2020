@@ -29,7 +29,7 @@
             @endforeach
         @else
             <div class="w-full py-2 my-1">
-                <h2 class="text-gray-700 text-2xl text-center">No Products Found</h2>
+                <h2 class="text-gray-700 text-2xl text-center">No Products Found In The {{ Str::title($category->name) }} Category</h2>
             </div>
         @endif
 

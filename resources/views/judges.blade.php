@@ -8,7 +8,7 @@
 <div class="mx-10">
     <h1 class="text-left text-gray-900 text-3xl">Welcome BPA Judges!</h1>
     <h2 class="text-gray-800 text-xl">
-        Welcome to our project, we're glad to have you here!
+        Welcome to our project, and we're glad to have you here.
     </h2>
 
     <div class="mt-3 p-4 text-gray-700 text-lg">
@@ -65,6 +65,11 @@
         <p>
             Past the user accounts, there's nothing you should need to know before hand. Everything has been designed to follow industry
             standard designs, and be simple to use.
+        </p>
+
+        <p class="pt-2">
+            One last note, the accessories category has been left purposefully empty. Purely for the reason so you have an empty area to test
+            whatever you like.
         </p>
     </div>
 
