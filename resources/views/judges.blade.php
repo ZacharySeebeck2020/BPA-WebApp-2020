@@ -18,8 +18,8 @@
             your own account as well if you choose, but you need to use the provided administator account
             to access any of the backend functions.
         </p>
-        <div class="flex md:flex-row flex-col mt-2">
-            <div class="content_card md:w-1/3 w-full shadow-lg m-4">
+        <div class="flex lg:flex-row flex-col mt-2">
+            <div class="content_card lg:w-1/3 w-full shadow-lg m-4">
                 <h3 class="text-gray-900 text-xl w-full text-center">Standard User</h3>
                 <div class="lg:w-3/4 lg:mx-auto mt-2">
                     <h4 class="text-gray-800">Email Address: </h4>
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <div class="content_card md:w-1/3 w-full shadow-lg m-4">
+            <div class="content_card lg:w-1/3 w-full shadow-lg m-4">
                 <h3 class="text-gray-800 text-xl w-full text-center">Administrative User</h3>
                 <div class="lg:w-3/4 lg:mx-auto mt-2">
                     <h4 class="text-gray-800">Email Address: </h4>
@@ -43,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="content_card md:w-1/3 w-full shadow-lg m-4">
+            <div class="content_card lg:w-1/3 w-full shadow-lg m-4">
                 <h3 class="text-gray-800 text-xl w-full text-center">cPanel</h3>
                 <div class="lg:w-3/4 lg:mx-auto mt-2">
                     <h4 class="text-gray-800">Address:</h4>
@@ -96,10 +96,12 @@
 
     <div class="mt-3 p-4 text-gray-700 text-lg">
         <div class="md:w-1/2 w-full flex flex-col">
-            <a href="/files/ewsg_webapp.zip" class="button button_blue mt-2 md:w-3/4 w-full">Download Project .zip</a>
-            <a href="https://github.com/ZacharySeebeck2020/BPA-WebApp-2020/archive/v1.0.2.zip" class="text-sm mt-1 mb-2 md:w-3/4 w-full">If that download doesn't work, try this mirror.</a>
-            <a href="/files/ewsg_works_sited.pdf" class="button button_blue my-2 md:w-3/4 w-full">Download Works Cited</a>
-            <a href="/files/ewsg_database_schema.zip" class="button button_blue my-2 md:w-3/4 w-full">Download Database Schema .zip</a>
+            <a href="/files/ewsg.zip" target="_new" class="button button_blue mt-2 mb-5 md:w-3/4 w-full">Download Everything</a>
+            <a href="/files/ewsg_webapp.zip" target="_new" class="button button_blue mt-2 md:w-3/4 w-full">Download Project .zip</a>
+            <a href="https://github.com/ZacharySeebeck2020/BPA-WebApp-2020/archive/v1.0.2.zip" target="_new" class="text-sm mt-1 mb-2 md:w-3/4 w-full">If that download doesn't work, try this mirror.</a>
+            <a href="/files/ewsg_works_sited.pdf" target="_new" class="button button_blue my-2 md:w-3/4 w-full">Download Works Cited</a>
+            <a href="/files/ewsg_database_schema.zip" target="_new" class="button button_blue my-2 md:w-3/4 w-full">Download Database Schema .zip</a>
+            <a href="/files/ewsg_project_plan.pdf" target="_new" class="button button_blue my-2 md:w-3/4 w-full">Download Project Plan</a>
         </div>
     </div>
 </div>
