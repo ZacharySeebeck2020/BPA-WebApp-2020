@@ -16,7 +16,7 @@
     <style>
         /* Hero Background Image Class */
         .back-image {
-            background-image: linear-gradient(to bottom, rgba(15, 15, 15, .8), rgba(15, 15, 15, .8)), url("/img/landing/hero.jpg");
+            background-image: linear-gradient(to bottom, rgba(15, 15, 15, .8), rgba(15, 15, 15, .8)), url("/storage/image/landing/hero.png");
 
             background-attachment: fixed;
             background-position: center;
@@ -89,7 +89,7 @@
                                 </path>
                                 <rect style="fill:#91d5b5;" x="25" y="17" width="16" height="8"></rect>
                             </g>
-                        </svg><br>{{ config('app.name') }}
+                        </svg><br>{{ App\Helpers\Configuration::getValues()['app']->name }}
                     </a>
                 </div>
 

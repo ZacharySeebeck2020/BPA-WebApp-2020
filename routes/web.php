@@ -88,4 +88,10 @@ Route::name('admin.')->prefix('admin')->middleware('administrator')->namespace('
         Route::post('/{category}', 'CategoriesController@update')->name('update');
         Route::delete('/{category}', 'CategoriesController@destroy')->name('delete');
     });
+
+    // Category Routes ----------------------------------------------------
+    Route::name('configuration.')->prefix('configuration')->group(function () {
+        Route::get('/', 'ConfigurationController@index')->name('index');
+        Route::put('/', 'ConfigurationController@store')->name('store');
+    });
 });

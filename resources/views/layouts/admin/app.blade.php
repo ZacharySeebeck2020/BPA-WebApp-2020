@@ -77,7 +77,7 @@
                     </svg><br />
 
                     <div class="mb-4 mt-1">
-                        <span class="text-gray-200 align-middle">{{ config('app.name') }} </span>
+                        <span class="text-gray-200 align-middle">{{ App\Helpers\Configuration::getValues()['app']->name }}</span>
                     </div>
                 </a>
 
@@ -113,6 +113,14 @@
                             <i class="fas fa-tags text-orange-500"></i>
                             <span
                                 class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block {{ strpos(Route::currentRouteName(), 'admin.categories') !== false ? "text-white md:font-bold" : "text-gray-600  md:text-gray-400" }}"> Categories</span>
+                        </a>
+                    </li>
+                    <li class="md:text-left text-center">
+                        <a href="{{ route('admin.configuration.index') }}" dashboard
+                            class="block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 {{ strpos(Route::currentRouteName(), 'admin.configuration') !== false ? "border-red-500 text-white" : "border-gray-800 md:border-gray-900 hover:border-red-500 text-gray-800" }}">
+                            <i class="fas fa-wrench text-red-500"></i>
+                            <span
+                                class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block {{ strpos(Route::currentRouteName(), 'admin.configuration') !== false ? "text-white md:font-bold" : "text-gray-600  md:text-gray-400" }}"> Site Configuration</span>
                         </a>
                     </li>
 

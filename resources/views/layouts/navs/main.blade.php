@@ -15,7 +15,7 @@
                 </g>
             </svg>
 
-            {{ config('app.name') }}
+            {{ App\Helpers\Configuration::getValues()['app']->name }}
         </a>
     </div>
 

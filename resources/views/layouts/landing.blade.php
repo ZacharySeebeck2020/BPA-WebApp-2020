@@ -16,7 +16,7 @@
     <style>
         /* Hero Background Image Class */
         .back-image {
-            background-image: linear-gradient(to bottom, rgba(148, 148, 148, .2), rgba(70, 70, 70, .8)), url("/img/landing/hero.jpg");
+            background-image: linear-gradient(to bottom, rgba(148, 148, 148, .2), rgba(70, 70, 70, .8)), url("/storage/image/landing/hero.png");
 
             background-attachment: fixed;
             background-position: center;
@@ -48,8 +48,8 @@
             <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
                 <!--Left Col-->
                 <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left sm:text-center">
-                    <h1 class="my-4 text-5xl font-bold leading-tight">Winter is here!</h1>
-                    <p class="leading-normal text-2xl mb-8">Why not get something new to keep you warm, but stylish!
+                    <h1 class="my-4 text-5xl font-bold leading-tight">{{ App\Helpers\Configuration::getValues()['homepage']->title }}</h1>
+                    <p class="leading-normal text-2xl mb-8">{{ App\Helpers\Configuration::getValues()['homepage']->subtitle }}
                     </p>
                 </div>
 
@@ -97,7 +97,7 @@
                                 </path>
                                 <rect style="fill:#91d5b5;" x="25" y="17" width="16" height="8"></rect>
                             </g>
-                        </svg><br>{{ config('app.name') }}
+                        </svg><br>{{ App\Helpers\Configuration::getValues()['app']->name }}
                     </a>
                 </div>
 
